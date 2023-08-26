@@ -1,0 +1,22 @@
+.button_1 {
+    all: unset;
+    background: #834AFD;
+    width: fit-content;
+    min-width: 120px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.button_1:hover {
+    background: #834afdde;
+}
+
+.button_1:active {
+    background: #834afdb7;
+    transform: translateY(1px);
+}

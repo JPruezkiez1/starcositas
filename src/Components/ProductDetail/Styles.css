@@ -1,0 +1,38 @@
+.productdetail_container {
+    position: fixed;
+    right: 0;
+    min-height: fit-content;
+    max-width: 272px;
+    background: #D9D9D9;
+    margin-top: 129px;
+    border-radius: 15px;
+    padding: 8px;
+
+}
+
+.detailwicon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.imageplace {
+    background: purple;
+    height: 200px;
+    width: 100%;
+    border-radius: 15px;
+    object-fit: fill;
+
+}
+
+.detailstext {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.hidden {
+    display: none;
+}

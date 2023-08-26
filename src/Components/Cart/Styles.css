@@ -1,0 +1,19 @@
+.checkout-side-menu {
+    width: fit-content;
+    max-height: calc(100vh - 68px);
+    top: 68px;
+    padding: 10px;
+    background: #D9D9D9;
+    border-radius: 15px;
+}
+
+.hidden_menu {
+    display: none;
+}
+
+.cart_container {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+
+}

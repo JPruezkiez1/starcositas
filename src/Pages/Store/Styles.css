@@ -1,0 +1,9 @@
+.product_section {
+    max-width: 650px;
+    gap: 30px 60px;
+    display: flex;
+    flex-grow: 1;
+    padding-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}

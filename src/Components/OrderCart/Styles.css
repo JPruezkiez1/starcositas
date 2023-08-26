@@ -1,0 +1,32 @@
+.order_cart {
+    display: flex;
+    flex-direction: column;
+    width: 272px;
+    min-height: fit-content;
+    max-height: max-content;
+    padding: 10px;
+    background-color: gray;
+    justify-content: space-between;
+    border-radius: 35px;
+}
+
+.cart_photo {
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.px {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+
+.titleprice {
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content;
+    height: fit-content;
+}
