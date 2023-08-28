@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import Addedtocart from './Addedtocart';
 const Product = (data) => {
     const context = useContext(ShoppingCartContext)
-
     const showProduct = (productDetail) => {
         context.openProductDetail()
         context.closeCheckoutSideMenu()

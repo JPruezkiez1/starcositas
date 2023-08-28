@@ -1,21 +1,21 @@
 import './Styles.css'
-const OrderCart = props => {
+const OrderCardDetail = props => {
     const { id, title, imageUrl, price, handleDelete } = props
     let renderDelete
     if (handleDelete) {
-        renderDelete = <p onClick={() => handleDelete(id)}>X</p>
+        renderDelete = <p className="font-extrabold" onClick={() => handleDelete(id)}>X</p>
     }
 
     return (
-        <div className="order_cart">
-            <div className='px'>
+        <div className="order_cart02">
+            <div className='px02'>
                 <figure className='figure_1 w-20 h-20'>
-                    <img className='cart_photo ' src={imageUrl} alt={title} />
+                    <img className='cart_photo02' src={imageUrl} alt={title} />
                 </figure>
                 <p className='font-bold'>${price}</p>
                 {renderDelete}
             </div>
-            <div className='titleprice'>
+            <div className='titleprice02'>
                 <p>{title}</p>
             </div>
         </div>
@@ -24,5 +24,5 @@ const OrderCart = props => {
 
 };
 
-export default OrderCart
+export default OrderCardDetail
 

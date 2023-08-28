@@ -1,0 +1,21 @@
+.notfound_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.notfoundtext {
+    position: absolute;
+    margin: 0;
+    top: 35%;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.returnbutton {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 60px;
+
+}

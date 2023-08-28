@@ -1,0 +1,36 @@
+.myorder_productlist {
+    max-width: 650px;
+    gap: 20px 30px;
+    display: flex;
+    flex-grow: 1;
+    padding-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.returnto_orders {
+    color: blueviolet;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+.order_summary {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.myorder_container_01 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.alldetails {
+    display: flex;
+    flex-direction: column;
+    background: gray;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}

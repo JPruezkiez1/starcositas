@@ -14,7 +14,7 @@ export default function Register() {
     const [password, setPassword] = useState('');
     return (
         <RegisterLayout>
-            {/* <div className='body_container'>
+            <div className='body_container'>
                 <img className="imageregister" src={registerimage} />
                 <div className='fieldsonly'>
                     <InputField labelName="Email:" type="email"
@@ -34,9 +34,8 @@ export default function Register() {
                         <Button text='Register' />
                     </div>
                 </div>
-            </div> */}
+            </div>
 
-            <OrderCart />
         </RegisterLayout>
     )
 };

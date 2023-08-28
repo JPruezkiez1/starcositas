@@ -1,6 +1,7 @@
+import './Styles.css'
 export default function Layout({ children }) {
     return (
-        <div className='flex flex-col items-center mt-4'> {children}</div>
+        <div className='layout_01 flex flex-col items-center '> {children}</div>
     )
 
 };

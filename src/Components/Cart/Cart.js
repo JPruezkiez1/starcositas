@@ -1,11 +1,32 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import OrderCart from '../OrderCart/index'
+import Button from '../Button/index'
+import { totalvalue } from '../../utility'
+import { Link } from 'react-router-dom'
 import './Styles.css'
 
 const CheckoutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
-    console.log('CART: ', context.cartProducts)
+
+    const handleDelete = (id) => {
+        const filteredCart = context.cartProducts.filter(product => product.id !== id)
+        context.setCartProducts(filteredCart)
+        context.setCount(context.count - 1)
+    }
+
+    const handleCheckout = () => {
+        const orderToAdd = {
+            date: new Date().toLocaleDateString(),
+            products: context.cartProducts,
+            totalqty: context.cartProducts.length,
+            TotalPrice: totalvalue(context.cartProducts)
+        }
+        context.setOrder([...context.order, orderToAdd])
+        context.setCartProducts([])
+        context.closeCheckoutSideMenu()
+    }
+
     return (
         <aside
             className={`${context.isCheckoutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu flex-col fixed right-0 border`}>
@@ -16,16 +37,27 @@ const CheckoutSideMenu = () => {
             </div>
             <div className='flex flex-col gap-1 overflow-y-scroll'>
                 {
-                    context.cartProducts.map(product => (
+                    context.cartProducts?.map(product => (
                         <OrderCart
                             key={product.id}
+                            id={product.id}
                             title={product.title}
                             imageUrl={product.image}
                             price={product.price}
+                            handleDelete={handleDelete}
                         />
 
                     ))
                 }
+            </div>
+            <div className='total_cartvalue'>
+                <div>
+                    <p>Products Qty: {context.cartProducts.length}</p>
+                    <p >Total Products:  <span className='font-bold'>${totalvalue(context.cartProducts)}</span></p>
+                </div>
+                <Link to='/my-orders/last'>
+                    <Button btn_action={() => handleCheckout()} text="Check out" />
+                </Link>
             </div>
         </aside>
     )

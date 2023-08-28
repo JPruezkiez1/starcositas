@@ -11,7 +11,9 @@ export default function Navbar() {
     return (
         <nav className='navbar_01'>
             <div className='icon_navbar_02'>
-                <Icon className="icon" />
+                <NavLink to='/'>
+                    <Icon className="icon" />
+                </NavLink>
                 <ul className='navbar_02'>
 
                     <li>
@@ -34,12 +36,16 @@ export default function Navbar() {
             <div className='icon_navbar_03'>
                 <ul className='navbar_03'>
                     <li>
-                        <li>
-                            <NavLink to='/Register'>
-                                Create Account
-                            </NavLink>
-                        </li>
+                        <NavLink to='/my-orders'>
+                            My Orders
+                        </NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/Register'>
+                            Create Account
+                        </NavLink>
+                    </li>
+
                 </ul>
                 <CartIcon className="cart_icon" >
                 </CartIcon>
