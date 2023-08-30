@@ -33,34 +33,34 @@ export const ShoppingCartProvider = ({ children }) => {
 
 
     /// search functionality  text and category//
-    const [searchvalue, setSearchvalue] = useState(null);;
-    const [searchcategory, setSearchCategory] = useState(null);;
-    console.log(searchcategory)
+    const [searchValue, setSearchValue] = useState(null);;
+    const [searchCategory, setSearchCategory] = useState(null);;
+    console.log(searchCategory)
 
     // items filter context ///
     const [filteredItems, setFilteredItems] = useState()
 
     // transform to lower case and filter by title //
-    const filteredItemsByTitle = (items, searchvalue) => {
-        return items?.filter(item => item.title.toLowerCase().includes(searchvalue.toLowerCase()))
+    const filteredItemsByTitle = (items, searchValue) => {
+        return items?.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
     }
 
-    const filteredItemsByCategory = (items, searchcategory) => {
-        return items?.filter(item => item.category.toLowerCase().includes(searchcategory.toLowerCase()))
+    const filteredItemsByCategory = (items, searchCategory) => {
+        return items?.filter(item => item.category.toLowerCase().includes(searchCategory.toLowerCase()))
     }
 
     //// search method - describer ///
-    const filterBy = (searchType, items, searchvalue, searchcategory) => {
+    const filterBy = (searchType, items, searchValue, searchCategory) => {
         if (searchType === 'BY_TITLE') {
-            return filteredItemsByTitle(items, searchvalue)
+            return filteredItemsByTitle(items, searchValue)
         }
 
         if (searchType === 'BY_CATEGORY') {
-            return filteredItemsByCategory(items, searchcategory)
+            return filteredItemsByCategory(items, searchCategory)
         }
 
         if (searchType === 'BY_TITLE_AND_CATEGORY') {
-            return filteredItemsByCategory(items, searchcategory, searchvalue).filter(item => item.title.toLowerCase().includes(searchvalue.toLowerCase()))
+            return filteredItemsByCategory(items, searchCategory, searchValue).filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
         }
 
         if (!searchType) {
@@ -71,11 +71,11 @@ export const ShoppingCartProvider = ({ children }) => {
 
     // filter text - category useUseEffect //
     useEffect(() => {
-        if (searchvalue && searchcategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchvalue, searchcategory))
-        if (searchvalue && !searchcategory) setFilteredItems(filterBy('BY_TITLE', items, searchvalue, searchcategory))
-        if (!searchvalue && searchcategory) setFilteredItems(filterBy('BY_CATEGORY', items, searchvalue, searchcategory))
-        if (!searchvalue && !searchcategory) setFilteredItems(filterBy(null, items, searchvalue, searchcategory))
-    }, [searchvalue, searchcategory, items])
+        if (searchValue && searchCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchValue, searchCategory))
+        if (searchValue && !searchCategory) setFilteredItems(filterBy('BY_TITLE', items, searchValue, searchCategory))
+        if (!searchValue && searchCategory) setFilteredItems(filterBy('BY_CATEGORY', items, searchValue, searchCategory))
+        if (!searchValue && !searchCategory) setFilteredItems(filterBy(null, items, searchValue, searchCategory))
+    }, [searchValue, searchCategory, items])
 
 
 
@@ -102,13 +102,13 @@ export const ShoppingCartProvider = ({ children }) => {
             setOrder,
             items,
             setItems,
-            setSearchvalue,
-            searchvalue,
+            setSearchValue,
+            searchValue,
             filteredItems,
             setFilteredItems,
             filteredItemsByTitle,
             filteredItemsByCategory,
-            searchcategory,
+            searchCategory,
             setSearchCategory,
         }}>
             {children}

@@ -27,7 +27,7 @@ export default function Store() {
     }
     return (
         <Layout>
-            <SearchBar setSearchvalue={context.setSearchvalue} />
+            <SearchBar setSearchValue={context.setSearchValue} />
             <div className='product_section'>
                 {
                     conditionalrenderforsearch()

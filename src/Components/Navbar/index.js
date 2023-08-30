@@ -49,7 +49,7 @@ export default function Navbar() {
                 </ul>
                 <CartIcon className="cart_icon" >
                 </CartIcon>
-                <div className='cart_count'>{context.count}</div>
+                <div className='cart_count'>{context.cartProducts.length}</div>
             </div>
         </nav>
 
