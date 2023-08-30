@@ -2,41 +2,38 @@ import './Styles.css'
 import Layout from '../../Components/Layout'
 import SearchBar from '../../Components/Searchbar'
 import Product from '../../Components/Product'
-import { useState, useEffect } from 'react'
+import { useContext } from 'react'
 import ProductDetail from '../../Components/ProductDetail/ProductDetail'
 import React from 'react'
+import { Title } from '../../Components/Title/index.js'
+import { ShoppingCartContext } from '../../Context'
 
-
-/// functionallity code here//
 export default function Store() {
+    const context = useContext(ShoppingCartContext);
 
-    const [searchvalue, setSearchvalue] = useState('');
-    const [items, setItems] = useState(null)
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products/')
-            .then(response => response.json())
-            .then(data => setItems(data))
-    }, [])
+    const conditionalrenderforsearch = () => {
+        if (context.filteredItems?.length > 0) {
+            return (
+                context.filteredItems?.map(item => (
+                    <Product key={item.id} data={item} />
+                ))
+            )
 
-    // Filter the items based on the search value
-    const filteredItems = items
-        ? items.filter(item => item.title.toLowerCase().includes(searchvalue.toLowerCase()))
-        : [];
+        } else {
 
+            <Title title='No items found fcker' />
+        }
 
+    }
     return (
         <Layout>
-            <SearchBar searchvalue={searchvalue} setSearchvalue={setSearchvalue} />
+            <SearchBar setSearchvalue={context.setSearchvalue} />
             <div className='product_section'>
                 {
-                    filteredItems.map(item => (
-                        <Product key={item.id} data={item} />
-                    ))
+                    conditionalrenderforsearch()
                 }
             </div>
             <ProductDetail />
         </Layout>
-
     )
-
 };

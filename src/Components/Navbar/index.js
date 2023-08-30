@@ -17,18 +17,18 @@ export default function Navbar() {
                 <ul className='navbar_02'>
 
                     <li>
-                        <NavLink to='/'>
+                        <NavLink onClick={() => context.setSearchCategory('')} to='/'>
                             StarCositas
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/'>
+                        <NavLink onClick={() => context.setSearchCategory('')} to='/'>
                             All
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/'>
-                            Category Example
+                        <NavLink onClick={() => context.setSearchCategory('electronics')} to='/electronics'>
+                            Electronics
                         </NavLink>
                     </li>
                 </ul>

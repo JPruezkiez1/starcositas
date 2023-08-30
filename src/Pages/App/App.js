@@ -8,6 +8,7 @@ import CheckoutSideMenu from '../../Components/Cart/Cart';
 import MyOrder from '../MyOrder';
 import MyOrders from '../MyOrders';
 import NotFound from '../NotFound';
+
 const AppRoutes = () => {
 
   let routes = useRoutes([
@@ -21,6 +22,7 @@ const AppRoutes = () => {
     { path: '/my-orders', element: <MyOrders /> },
     { path: '/orders', element: <MyOrders /> },
     { path: '/my-orders/:id', element: <MyOrder /> },
+    { path: '/electronics', element: <Store /> },
 
   ])
   return routes
