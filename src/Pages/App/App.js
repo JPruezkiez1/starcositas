@@ -8,6 +8,7 @@ import CheckoutSideMenu from '../../Components/Cart/Cart';
 import MyOrder from '../MyOrder';
 import MyOrders from '../MyOrders';
 import NotFound from '../NotFound';
+import Login from '../Login';
 
 const AppRoutes = () => {
 
@@ -23,6 +24,7 @@ const AppRoutes = () => {
     { path: '/orders', element: <MyOrders /> },
     { path: '/my-orders/:id', element: <MyOrder /> },
     { path: '/electronics', element: <Store /> },
+    { path: '/login', element: <Login /> },
 
   ])
   return routes

@@ -2,8 +2,11 @@ import { createContext, useState, useEffect } from 'react'
 
 export const ShoppingCartContext = createContext()
 
-export const ShoppingCartProvider = ({ children }) => {
+const initialUsers = [
+    { id: 1, email: 'admin@admin.com', username: 'admin', password: 'admin' },
+];
 
+export const ShoppingCartProvider = ({ children }) => {
     /// all related to the shop core functionality //
     // Shopping Cart · Increment quantity
     const [count, setCount] = useState(0)
@@ -30,25 +33,18 @@ export const ShoppingCartProvider = ({ children }) => {
             .then(data => setItems(data))
     }, [])
     const [items, setItems] = useState(null)
-
-
     /// search functionality  text and category//
     const [searchValue, setSearchValue] = useState(null);;
     const [searchCategory, setSearchCategory] = useState(null);;
-    console.log(searchCategory)
-
     // items filter context ///
     const [filteredItems, setFilteredItems] = useState()
-
     // transform to lower case and filter by title //
     const filteredItemsByTitle = (items, searchValue) => {
         return items?.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
     }
-
     const filteredItemsByCategory = (items, searchCategory) => {
         return items?.filter(item => item.category.toLowerCase().includes(searchCategory.toLowerCase()))
     }
-
     //// search method - describer ///
     const filterBy = (searchType, items, searchValue, searchCategory) => {
         if (searchType === 'BY_TITLE') {
@@ -80,10 +76,43 @@ export const ShoppingCartProvider = ({ children }) => {
 
 
 
+    /// all related to the register and login functionality //
+    const [users, setUsers] = useState(() => {
+        const storedUsers = JSON.parse(localStorage.getItem('registeredUsers'));
+        const mergedUsers = [
+            ...initialUsers,
+            ...(storedUsers || [])
+        ].reduce((acc, user) => {
+            if (!acc.some((existingUser) => existingUser.username === user.username)) {
+                acc.push(user);
+            }
+            return acc;
+        }, []);
+        return mergedUsers;
+    });
+
+    const registerUser = (user) => {
+        const newUser = { ...user, id: users.length + 1 };
+        setUsers([...users, newUser]);
+    };
+
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        localStorage.setItem('registeredUsers', JSON.stringify(users));
+    }, [users]);
 
 
 
-    console.log(filteredItems)
+
+    /// user login  interface control ///
+    const [isLogged, setIsLogged] = useState(false);
+    /// logged userInfo//
+    const [loggedInUser, setLoggedInUser] = useState(null);
+
     return (
         <ShoppingCartContext.Provider value={{
             count,
@@ -110,6 +139,20 @@ export const ShoppingCartProvider = ({ children }) => {
             filteredItemsByCategory,
             searchCategory,
             setSearchCategory,
+            users, setUsers,
+            registerUser,
+            username,
+            setUsername,
+            password,
+            setPassword,
+            errorMessage,
+            setErrorMessage,
+            email,
+            setEmail,
+            isLogged,
+            setIsLogged,
+            loggedInUser,
+            setLoggedInUser
         }}>
             {children}
         </ShoppingCartContext.Provider>
