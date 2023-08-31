@@ -3,7 +3,11 @@ import './Styles.css';
 import { ShoppingCartContext } from '../../Context';
 import { useContext } from 'react';
 import Addedtocart from './Addedtocart';
+import { useNavigate } from 'react-router-dom';
+
+
 const Product = (data) => {
+    const navigate = useNavigate()
     const context = useContext(ShoppingCartContext)
     const showProduct = (productDetail) => {
         context.openProductDetail()
@@ -19,9 +23,9 @@ const Product = (data) => {
         context.closeProductDetail()
     }
 
-    // conditionar rendering for the fcking button...
+    // conditional rendering for the fcking button...
     const renderIcon = (id) => {
-        const isInCart = context.cartProducts.filter(product => product.id === id).length > 0
+        const isInCart = context.cartProducts.some(product => product.id === id);
         if (isInCart) {
             return (
                 <div className='buttoncontainer'>
@@ -31,13 +35,20 @@ const Product = (data) => {
         } else {
             return (
                 <div className='buttoncontainer'>
-                    <Button btn_action={(event) => addProductsToCart(event, data.data)} text="Add to Cart" />
+                    {context.isLogged ? (
+                        <Button
+                            btn_action={(event) => addProductsToCart(event, data.data)}
+                            text="Add to Cart"
+                        />
+                    ) : (
+                        <div className='buttoncontainer'>
+                            <Button text="Login to Add" btn_action={() => navigate('/login')} className="login_button" />
+                        </div>
+                    )}
                 </div>
             )
         }
     }
-
-
     return (
         <div onClick={() => showProduct(data.data)} className='product_container cursor-pointer'>
             <figure className='photo'>
