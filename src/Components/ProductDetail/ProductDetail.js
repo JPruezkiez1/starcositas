@@ -6,7 +6,7 @@ export default function ProductDetail() {
     const context = useContext(ShoppingCartContext)
 
     return (
-        <div className={context.isProductDetailOpen ? 'productdetail_container' : 'hidden'}>
+        <div className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} , productdetail_container`}>
             <div className='detailwicon'>
                 <span>Details</span>
                 <span onClick={() => context.closeProductDetail()} className='  cursor-pointer'>X</span>

@@ -49,7 +49,6 @@ const CheckoutSideMenu = () => {
                             price={product.price}
                             handleDelete={handleDelete}
                         />
-
                     ))
                 }
             </div>

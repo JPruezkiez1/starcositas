@@ -10,6 +10,7 @@ import { ShoppingCartContext } from '../../Context'
 
 export default function Store() {
     const context = useContext(ShoppingCartContext);
+    console.log(context.filteredItems)
 
     const conditionalrenderforsearch = () => {
         if (context.filteredItems?.length > 0) {
@@ -18,11 +19,15 @@ export default function Store() {
                     <Product key={item.id} data={item} />
                 ))
             )
-
-        } else {
-
-            <Title title='No items found fcker' />
         }
+
+        return (
+            <Title text='No items found fcker' />
+        )
+
+
+
+
 
     }
     return (

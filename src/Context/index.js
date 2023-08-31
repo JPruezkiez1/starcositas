@@ -105,6 +105,21 @@ export const ShoppingCartProvider = ({ children }) => {
         if (!searchValue && !searchCategory) setFilteredItems(filterBy(null, items, searchValue, searchCategory))
     }, [searchValue, searchCategory, items])
 
+
+
+
+
+
+    /// this will keep the user log-in after page refresh - localStorage //
+    useEffect(() => {
+        const savedUser = localStorage.getItem('loggedInUser');
+        if (savedUser) {
+            const user = JSON.parse(savedUser);
+            setIsLogged(true);
+            setLoggedInUser(user);
+        }
+    }, []);
+
     return (
         <ShoppingCartContext.Provider value={{
             count,

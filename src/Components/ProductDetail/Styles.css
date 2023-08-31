@@ -1,12 +1,15 @@
 .productdetail_container {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     right: 0;
     min-height: fit-content;
     max-width: 272px;
     background: #D9D9D9;
-    margin-top: 129px;
+    margin-top: 38px;
     border-radius: 15px;
     padding: 8px;
+    max-height: 80vh;
 
 }
 
@@ -29,6 +32,7 @@
 .detailstext {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 

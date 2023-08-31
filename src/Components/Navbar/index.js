@@ -9,10 +9,13 @@ import { ShoppingCartContext } from '../../Context/index';
 export default function Navbar() {
     const context = useContext(ShoppingCartContext);
     const logoutmainpage = useNavigate();
-    const logout = () => {
 
+    const logout = () => {
+        localStorage.removeItem('loggedInUser');
         context.setLoggedInUser(null);
         context.setIsLogged(false);
+        context.setCartProducts([])
+        context.closeCheckoutSideMenu()
         logoutmainpage('/');
     };
 

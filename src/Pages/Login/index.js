@@ -26,6 +26,9 @@ export default function Login() {
             navigate('/');
             context.setLoggedInUser(user);
             context.setIsLogged(true);
+
+            // Save the user information to localStorage
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
         } else {
             console.log('Login failed. Please check your credentials.');
         }
