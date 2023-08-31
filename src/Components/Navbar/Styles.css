@@ -54,3 +54,26 @@
     font-size: medium;
 
 }
+
+.active_001:hover {
+
+    text-decoration: white wavy underline
+}
+
+.active_001 {
+
+    text-decoration: black wavy underline
+}
+
+.hover_001:hover {
+    /* text-decoration: white wavy underline; */
+    font-size: 24px;
+
+}
+
+.hover_002:hover {
+    text-decoration: white wavy underline;
+    width: 55px;
+    height: 55px;
+
+}

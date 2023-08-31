@@ -18,29 +18,32 @@ export default function Navbar() {
         context.closeCheckoutSideMenu()
         logoutmainpage('/');
     };
-
+    const active = 'active_001'
     const renderLoginLinks = () => {
         if (!context.isLogged) {
             return (
                 <>
-                    <li>
-                        <NavLink to='/Register'>Create Account</NavLink>
+                    <li >
+                        <NavLink className={({ isActive }) =>
+                            isActive ? active : 'hover_001'
+                        } to='/Register'>Create Account</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/Login'>Login</NavLink>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? active : 'hover_001'
+                        } to='/Login'>Login</NavLink>
                     </li>
                 </>
             );
         } else {
             return (
                 <>
-                    <div>{context.loggedInUser && context.loggedInUser.username}</div>
-                    <div onClick={logout}>Logout</div>
+                    <div className='hover_001'>{context.loggedInUser && context.loggedInUser.username}</div>
+                    <div className='hover_001' onClick={logout}>Logout</div>
                 </>
             );
         }
     };
-
     return (
         <nav className='navbar_01'>
             <div className='icon_navbar_02'>
@@ -49,17 +52,27 @@ export default function Navbar() {
                 </NavLink>
                 <ul className='navbar_02'>
                     <li>
-                        <NavLink onClick={() => context.setSearchCategory('')} to='/'>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? active : 'hover_001'
+                        }
+                            onClick={() => context.setSearchCategory('')} to='/'>
                             StarCositas
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={() => context.setSearchCategory('jewelery')} to='/jewelry'>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? active : 'hover_001'
+                        }
+                            onClick={() => context.setSearchCategory('jewelery')}
+                            to='/jewelry'>
+
                             jewelry
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={() => context.setSearchCategory('electronics')} to='/electronics'>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? active : 'hover_001'
+                        } onClick={() => context.setSearchCategory('electronics')} to='/electronics'>
                             Electronics
                         </NavLink>
                     </li>
@@ -68,13 +81,15 @@ export default function Navbar() {
             <div className='icon_navbar_03'>
                 <ul className='navbar_03'>
                     <li>
-                        <NavLink to='/my-orders'>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? active : 'hover_001'
+                        } to='/my-orders'>
                             My Orders
                         </NavLink>
                     </li>
                     {renderLoginLinks()}
                 </ul>
-                <CartIcon className="cart_icon">
+                <CartIcon className="cart_icon hover_002">
                 </CartIcon>
                 <div className='cart_count'>{context.cartProducts.length}</div>
             </div>

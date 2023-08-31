@@ -106,10 +106,6 @@ export const ShoppingCartProvider = ({ children }) => {
     }, [searchValue, searchCategory, items])
 
 
-
-
-
-
     /// this will keep the user log-in after page refresh - localStorage //
     useEffect(() => {
         const savedUser = localStorage.getItem('loggedInUser');
@@ -119,6 +115,14 @@ export const ShoppingCartProvider = ({ children }) => {
             setLoggedInUser(user);
         }
     }, []);
+
+    // this one will keep the orders in localStorage //.
+    useEffect(() => {
+        const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+        setOrder(savedOrders);
+    }, []);
+
+
 
     return (
         <ShoppingCartContext.Provider value={{

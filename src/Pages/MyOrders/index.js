@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { Title } from '../../Components/Title'
 import Button from '../../Components/Button/index'
 import { useNavigate } from 'react-router-dom'
-
+import './Styles.css'
 
 export default function MyOrders() {
     const context = useContext(ShoppingCartContext);
@@ -17,9 +17,9 @@ export default function MyOrders() {
 
     return (
         <Layout>
+            <div className='orders_Title'> My Orders</div>
             {filteredOrders.length > 0 ? (
-                <div>
-                    <h1>My Orders</h1>
+                <div className='orders_container' >
                     {filteredOrders.map((order, index) => (
                         <Link key={index} to={`/my-orders/${index}`}>
                             <OrdersCard

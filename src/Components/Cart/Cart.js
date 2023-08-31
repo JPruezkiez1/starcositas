@@ -28,7 +28,13 @@ const CheckoutSideMenu = () => {
         context.setOrder([...context.order, orderToAdd])
         context.setCartProducts([])
         context.closeCheckoutSideMenu()
+
+        /////// this bitch will basically save the orders into local storage//
+        const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+        const updatedOrders = [...savedOrders, orderToAdd];
+        localStorage.setItem('orders', JSON.stringify(updatedOrders));
     }
+
 
     return (
         <aside
