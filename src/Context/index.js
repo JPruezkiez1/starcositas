@@ -24,21 +24,24 @@ export const ShoppingCartProvider = ({ children }) => {
     const [cartProducts, setCartProducts] = useState([])
     // Check out - My Orders
     const [order, setOrder] = useState([])
-
     /// all related to the API consumption and showing the products
     // consume API ///
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products/')
-            .then(response => response.json())
-            .then(data => setItems(data))
-    }, [])
     const [items, setItems] = useState(null)
     /// search functionality  text and category//
     const [searchValue, setSearchValue] = useState(null);;
     const [searchCategory, setSearchCategory] = useState(null);;
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');                            /// general context for the usage of the register form, this might be local if you want..
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    /// user login  interface control ///
+    const [isLogged, setIsLogged] = useState(false);
+    const [loggedInUser, setLoggedInUser] = useState(null); /// Make sure to setup a functionality with this to keep up orders based on the proper user.
+
     // items filter context ///
     const [filteredItems, setFilteredItems] = useState()
-    // transform to lower case and filter by title //
+    //// search method - describer ///
+
     const filteredItemsByTitle = (items, searchValue) => {
         return items?.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
     }
@@ -50,32 +53,16 @@ export const ShoppingCartProvider = ({ children }) => {
         if (searchType === 'BY_TITLE') {
             return filteredItemsByTitle(items, searchValue)
         }
-
         if (searchType === 'BY_CATEGORY') {
-            return filteredItemsByCategory(items, searchCategory)
+            return filteredItemsByCategory(items, searchCategory)                       ///this entire shit is just to by able to have multiple search criteria
         }
-
         if (searchType === 'BY_TITLE_AND_CATEGORY') {
             return filteredItemsByCategory(items, searchCategory, searchValue).filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
         }
-
         if (!searchType) {
             return items
         }
     }
-
-
-    // filter text - category useUseEffect //
-    useEffect(() => {
-        if (searchValue && searchCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchValue, searchCategory))
-        if (searchValue && !searchCategory) setFilteredItems(filterBy('BY_TITLE', items, searchValue, searchCategory))
-        if (!searchValue && searchCategory) setFilteredItems(filterBy('BY_CATEGORY', items, searchValue, searchCategory))
-        if (!searchValue && !searchCategory) setFilteredItems(filterBy(null, items, searchValue, searchCategory))
-    }, [searchValue, searchCategory, items])
-
-
-
-
     /// all related to the register and login functionality //
     const [users, setUsers] = useState(() => {
         const storedUsers = JSON.parse(localStorage.getItem('registeredUsers'));
@@ -90,28 +77,33 @@ export const ShoppingCartProvider = ({ children }) => {
         }, []);
         return mergedUsers;
     });
-
     const registerUser = (user) => {
-        const newUser = { ...user, id: users.length + 1 };
+        const newUser = { ...user, id: users.length + 1 };           /// this whole shit i dont really get it too much, the chat helped me with this....
         setUsers([...users, newUser]);
     };
 
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    //data loaders///
 
+    //this one consumes the products API **** It just loads the info to a .json file.
     useEffect(() => {
-        localStorage.setItem('registeredUsers', JSON.stringify(users));
+        fetch('https://fakestoreapi.com/products/')
+            .then(response => response.json())
+            .then(data => setItems(data))
+    }, [])
+
+
+    // this one loads the default users // default users are a bitch......
+    useEffect(() => {
+        localStorage.setItem('registeredUsers', JSON.stringify(users));             //**///** */            //this one will load the first users or default users you might not need this in production...
     }, [users]);
 
-
-
-
-    /// user login  interface control ///
-    const [isLogged, setIsLogged] = useState(false);
-    /// logged userInfo//
-    const [loggedInUser, setLoggedInUser] = useState(null);
+    // filter text - category useUseEffect //
+    useEffect(() => {
+        if (searchValue && searchCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchValue, searchCategory))
+        if (searchValue && !searchCategory) setFilteredItems(filterBy('BY_TITLE', items, searchValue, searchCategory))
+        if (!searchValue && searchCategory) setFilteredItems(filterBy('BY_CATEGORY', items, searchValue, searchCategory))                      /// this is one is really a just use your fcking brain and make sense of it
+        if (!searchValue && !searchCategory) setFilteredItems(filterBy(null, items, searchValue, searchCategory))
+    }, [searchValue, searchCategory, items])
 
     return (
         <ShoppingCartContext.Provider value={{

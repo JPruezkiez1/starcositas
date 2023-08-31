@@ -15,9 +15,12 @@ const CheckoutSideMenu = () => {
         context.setCount(context.count - 1)
     }
 
+
+    /// this one is for creating the orders ////
     const handleCheckout = () => {
         const orderToAdd = {
             date: new Date().toLocaleDateString(),
+            userId: context.loggedInUser.id,
             products: context.cartProducts,
             totalqty: context.cartProducts.length,
             TotalPrice: totalvalue(context.cartProducts)

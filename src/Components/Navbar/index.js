@@ -1,14 +1,21 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Styles.css';
 import Icon from './Icon';
 import CartIcon from './ShoppingCarticon';
 import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context/index';
 
+
 export default function Navbar() {
     const context = useContext(ShoppingCartContext);
+    const logoutmainpage = useNavigate();
+    const logout = () => {
 
-    // Function to conditionally render login and create account links
+        context.setLoggedInUser(null);
+        context.setIsLogged(false);
+        logoutmainpage('/');
+    };
+
     const renderLoginLinks = () => {
         if (!context.isLogged) {
             return (
@@ -25,7 +32,7 @@ export default function Navbar() {
             return (
                 <>
                     <div>{context.loggedInUser && context.loggedInUser.username}</div>
-                    <div onClick={() => context.setIsLogged(false)}>Logout</div>
+                    <div onClick={logout}>Logout</div>
                 </>
             );
         }
@@ -44,8 +51,8 @@ export default function Navbar() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={() => context.setSearchCategory('')} to='/'>
-                            All
+                        <NavLink onClick={() => context.setSearchCategory('jewelery')} to='/jewelry'>
+                            jewelry
                         </NavLink>
                     </li>
                     <li>
@@ -62,7 +69,7 @@ export default function Navbar() {
                             My Orders
                         </NavLink>
                     </li>
-                    {renderLoginLinks()} {/* Call the renderLoginLinks function */}
+                    {renderLoginLinks()}
                 </ul>
                 <CartIcon className="cart_icon">
                 </CartIcon>
