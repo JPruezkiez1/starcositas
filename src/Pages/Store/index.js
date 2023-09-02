@@ -10,7 +10,6 @@ import { ShoppingCartContext } from '../../Context'
 
 export default function Store() {
     const context = useContext(ShoppingCartContext);
-    console.log(context.filteredItems)
 
     const conditionalrenderforsearch = () => {
         if (context.filteredItems?.length > 0) {

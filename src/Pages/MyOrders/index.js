@@ -10,7 +10,6 @@ import './Styles.css'
 
 export default function MyOrders() {
     const context = useContext(ShoppingCartContext);
-
     // filter for orders, this one is based on the user who made them...
     const filteredOrders = context.loggedInUser ? context.order.filter(order => order.userId === context.loggedInUser.id) : [];
     const navigate = useNavigate();

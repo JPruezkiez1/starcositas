@@ -5,7 +5,6 @@ const OrderCart = props => {
     if (handleDelete) {
         renderDelete = <p onClick={() => handleDelete(id)}>X</p>
     }
-
     return (
         <div className="order_cart">
             <div className='px'>
@@ -19,10 +18,7 @@ const OrderCart = props => {
                 <p>{title}</p>
             </div>
         </div>
-
     )
-
 };
-
 export default OrderCart
 

@@ -9,6 +9,9 @@ import MyOrder from '../MyOrder';
 import MyOrders from '../MyOrders';
 import NotFound from '../NotFound';
 import Login from '../Login';
+import Users from '../Users/Users.js';
+import UserCard from '../../Components/UserCard/UserCard';
+
 
 const AppRoutes = () => {
 
@@ -26,6 +29,8 @@ const AppRoutes = () => {
     { path: '/electronics', element: <Store /> },
     { path: '/login', element: <Login /> },
     { path: '/jewelry', element: <Store /> },
+    { path: '/users', element: <Users /> },
+    { path: '/card', element: <UserCard /> },
 
   ])
   return routes

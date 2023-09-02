@@ -8,7 +8,7 @@ export default function SearchBar({ searchValue, setSearchValue }) {
                     setSearchValue(event.target.value);
                 }} />
             <img alt="search" className='input_icon' src={SearchIcon} width="48px" />
-        </div >
+        </div>
     )
 
 

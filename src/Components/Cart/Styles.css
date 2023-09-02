@@ -1,7 +1,8 @@
 .checkout-side-menu {
     min-width: 272px;
     width: fit-content;
-    max-height: calc(100vh - 68px);
+    height: fit-content;
+    max-height: 80vh;
     top: 101px;
     padding: 10px;
     background: #D9D9D9;

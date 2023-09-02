@@ -1,0 +1,39 @@
+.container_user {
+    flex-direction: column;
+    width: 250px;
+    display: flex;
+    border: 1.5px solid black;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+
+.Label_001 {
+    color: black;
+    font-weight: bold;
+}
+
+.img_user {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    background: gray;
+    border-radius: 15px;
+}
+
+.user_det {
+    display: flex;
+    margin-left: 10px;
+
+
+}
+
+.user_det02 {
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.info_user01 {
+    display: flex;
+    flex-direction: column;
+}

@@ -9,6 +9,11 @@ import { ShoppingCartContext } from '../../Context/index';
 export default function Navbar() {
     const context = useContext(ShoppingCartContext);
     const logoutmainpage = useNavigate();
+    const opencartfromnav = () => {
+
+        context.openCheckoutSideMenu()
+    }
+
 
     const logout = () => {
         localStorage.removeItem('loggedInUser');
@@ -72,8 +77,8 @@ export default function Navbar() {
                     <li>
                         <NavLink className={({ isActive }) =>
                             isActive ? active : 'hover_001'
-                        } onClick={() => context.setSearchCategory('electronics')} to='/electronics'>
-                            Electronics
+                        } onClick={() => context.setSearchCategory('smartphones')} to='/electronics'>
+                            SmartPhones
                         </NavLink>
                     </li>
                 </ul>
@@ -89,7 +94,7 @@ export default function Navbar() {
                     </li>
                     {renderLoginLinks()}
                 </ul>
-                <CartIcon className="cart_icon hover_002">
+                <CartIcon onClick={opencartfromnav} className="cart_icon hover_002">
                 </CartIcon>
                 <div className='cart_count'>{context.cartProducts.length}</div>
             </div>

@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react'
-
 export const ShoppingCartContext = createContext()
 
 const initialUsers = [
@@ -18,6 +17,8 @@ export const ShoppingCartProvider = ({ children }) => {
     const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false)
     const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
     const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
+
+
     // Product Detail · Show product
     const [productToShow, setProductToShow] = useState({})
     // Shopping Cart · Add products to cart
@@ -86,9 +87,9 @@ export const ShoppingCartProvider = ({ children }) => {
 
     //this one consumes the products API **** It just loads the info to a .json file.
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products/')
+        fetch('https://dummyjson.com/products')
             .then(response => response.json())
-            .then(data => setItems(data))
+            .then(data => setItems(data.products))
     }, [])
 
 
@@ -121,6 +122,18 @@ export const ShoppingCartProvider = ({ children }) => {
         const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
         setOrder(savedOrders);
     }, []);
+
+
+
+    // new Users with API
+    const [usertest, setUsertest] = useState([])
+
+    useEffect(() => {
+        fetch('https://dummyjson.com/users')
+            .then(response => response.json())
+            .then(userdata => setUsertest(userdata.users)) // Access the 'users' property
+    }, [])
+
 
 
 
@@ -163,7 +176,9 @@ export const ShoppingCartProvider = ({ children }) => {
             isLogged,
             setIsLogged,
             loggedInUser,
-            setLoggedInUser
+            setLoggedInUser,
+            usertest,
+            setUsertest
         }}>
             {children}
         </ShoppingCartContext.Provider>

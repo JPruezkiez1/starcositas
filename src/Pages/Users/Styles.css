@@ -1,0 +1,9 @@
+.users_section {
+    margin-top: 20px;
+    gap: 10px 30px;
+    display: flex;
+    flex-grow: 1;
+    padding-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
