@@ -1,43 +1,32 @@
-import { createContext, useState, useEffect } from 'react'
-export const ShoppingCartContext = createContext()
+import { createContext, useState, useEffect } from 'react';
 
-const initialUsers = [
-    { id: 1, email: 'admin@admin.com', username: 'admin', password: 'admin' },
-];
+export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
     /// all related to the shop core functionality //
     // Shopping Cart · Increment quantity
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
     // Product Detail · Open/Close
-    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
-    const openProductDetail = () => setIsProductDetailOpen(true)
-    const closeProductDetail = () => setIsProductDetailOpen(false)
+    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
+    const openProductDetail = () => setIsProductDetailOpen(true);
+    const closeProductDetail = () => setIsProductDetailOpen(false);
     // Checkout Side Menu · Open/Close
-    const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false)
-    const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
-    const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
-
-
+    const [isCheckoutSideMenuOpen, setIsCheckoutSideMenuOpen] = useState(false);
+    const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true);
+    const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
     // Product Detail · Show product
-    const [productToShow, setProductToShow] = useState({})
+    const [productToShow, setProductToShow] = useState({});
     // Shopping Cart · Add products to cart
-    const [cartProducts, setCartProducts] = useState([])
+    const [cartProducts, setCartProducts] = useState([]);
     // Check out - My Orders
-    const [order, setOrder] = useState([])
+    const [order, setOrder] = useState([]);
     /// all related to the API consumption and showing the products
     // consume API ///
-    const [items, setItems] = useState(null)
+    const [items, setItems] = useState(null);
     /// search functionality  text and category//
     const [searchValue, setSearchValue] = useState(null);;
     const [searchCategory, setSearchCategory] = useState(null);;
-    const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');                            /// general context for the usage of the register form, this might be local if you want..
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    /// user login  interface control ///
-    const [isLogged, setIsLogged] = useState(false);
-    const [loggedInUser, setLoggedInUser] = useState(null); /// Make sure to setup a functionality with this to keep up orders based on the proper user.
+    /// Make sure to setup a functionality with this to keep up orders based on the proper user.
 
     // items filter context ///
     const [filteredItems, setFilteredItems] = useState()
@@ -64,39 +53,15 @@ export const ShoppingCartProvider = ({ children }) => {
             return items
         }
     }
-    /// all related to the register and login functionality //
-    const [users, setUsers] = useState(() => {
-        const storedUsers = JSON.parse(localStorage.getItem('registeredUsers'));
-        const mergedUsers = [
-            ...initialUsers,
-            ...(storedUsers || [])
-        ].reduce((acc, user) => {
-            if (!acc.some((existingUser) => existingUser.username === user.username)) {
-                acc.push(user);
-            }
-            return acc;
-        }, []);
-        return mergedUsers;
-    });
-    const registerUser = (user) => {
-        const newUser = { ...user, id: users.length + 1 };           /// this whole shit i dont really get it too much, the chat helped me with this....
-        setUsers([...users, newUser]);
-    };
 
     //data loaders///
 
     //this one consumes the products API **** It just loads the info to a .json file.
     useEffect(() => {
-        fetch('https://dummyjson.com/products')
+        fetch('https://fakestoreapi.com/products')
             .then(response => response.json())
-            .then(data => setItems(data.products))
+            .then(data => setItems(data))
     }, [])
-
-
-    // this one loads the default users // default users are a bitch......
-    useEffect(() => {
-        localStorage.setItem('registeredUsers', JSON.stringify(users));             //**///** */            //this one will load the first users or default users you might not need this in production...
-    }, [users]);
 
     // filter text - category useUseEffect //
     useEffect(() => {
@@ -106,33 +71,44 @@ export const ShoppingCartProvider = ({ children }) => {
         if (!searchValue && !searchCategory) setFilteredItems(filterBy(null, items, searchValue, searchCategory))
     }, [searchValue, searchCategory, items])
 
-
-    /// this will keep the user log-in after page refresh - localStorage //
-    useEffect(() => {
-        const savedUser = localStorage.getItem('loggedInUser');
-        if (savedUser) {
-            const user = JSON.parse(savedUser);
-            setIsLogged(true);
-            setLoggedInUser(user);
-        }
-    }, []);
-
     // this one will keep the orders in localStorage //.
     useEffect(() => {
         const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
         setOrder(savedOrders);
     }, []);
 
+    //// code related to users
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');                            /// general context for the usage of the register form, this might be local if you want..
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const [isLogged, setIsLogged] = useState(false);
+    const [loggedInUser, setLoggedInUser] = useState(null);
+
+
+
+
+
 
 
     // new Users with API
     const [usertest, setUsertest] = useState([])
-
     useEffect(() => {
         fetch('https://dummyjson.com/users')
             .then(response => response.json())
-            .then(userdata => setUsertest(userdata.users)) // Access the 'users' property
+            .then(userdata => setUsertest(userdata.users))
     }, [])
+
+
+    useEffect(() => {
+        const savedUser = localStorage.getItem('loggedInUser');
+        if (savedUser) {
+            const user = JSON.parse(savedUser);
+            setLoggedInUser(user);
+            setIsLogged(true);
+        }
+    }, []);
 
 
 
@@ -163,8 +139,6 @@ export const ShoppingCartProvider = ({ children }) => {
             filteredItemsByCategory,
             searchCategory,
             setSearchCategory,
-            users, setUsers,
-            registerUser,
             username,
             setUsername,
             password,
@@ -183,4 +157,4 @@ export const ShoppingCartProvider = ({ children }) => {
             {children}
         </ShoppingCartContext.Provider>
     )
-}
+};

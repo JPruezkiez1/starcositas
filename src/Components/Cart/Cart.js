@@ -5,6 +5,8 @@ import Button from '../Button/index'
 import { totalvalue } from '../../utility'
 import { Link } from 'react-router-dom'
 import './Styles.css'
+import { v4 as uuidv4 } from 'uuid';
+
 
 const CheckoutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
@@ -18,7 +20,11 @@ const CheckoutSideMenu = () => {
 
     /// this one is for creating the orders ////
     const handleCheckout = () => {
+        // Generate a unique order ID using uuidv4()
+        const orderId = uuidv4();
+
         const orderToAdd = {
+            id: orderId, // Add the unique order ID
             date: new Date().toLocaleDateString(),
             userId: context.loggedInUser.id,
             products: context.cartProducts,

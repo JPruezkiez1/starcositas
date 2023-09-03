@@ -18,7 +18,7 @@ export default function Login() {
 
     const navigate = useNavigate();
     const handleLogin = () => {
-        const user = context.users.find(
+        const user = context.usertest.find(
             (user) => user.username === username && user.password === password
         );
 
@@ -26,8 +26,6 @@ export default function Login() {
             navigate('/');
             context.setLoggedInUser(user);
             context.setIsLogged(true);
-
-            // Save the user information to localStorage
             localStorage.setItem('loggedInUser', JSON.stringify(user));
         } else {
             console.log('Login failed. Please check your credentials.');
