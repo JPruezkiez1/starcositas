@@ -77,8 +77,8 @@ export default function Navbar() {
                     <li>
                         <NavLink className={({ isActive }) =>
                             isActive ? active : 'hover_001'
-                        } onClick={() => context.setSearchCategory('smartphones')} to='/electronics'>
-                            SmartPhones
+                        } to='/users'>
+                            users
                         </NavLink>
                     </li>
                 </ul>

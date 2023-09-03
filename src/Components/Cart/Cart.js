@@ -6,7 +6,7 @@ import { totalvalue } from '../../utility'
 import { Link } from 'react-router-dom'
 import './Styles.css'
 import { v4 as uuidv4 } from 'uuid';
-
+import { useNavigate } from 'react-router-dom'
 
 const CheckoutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
@@ -16,7 +16,7 @@ const CheckoutSideMenu = () => {
         context.setCartProducts(filteredCart)
         context.setCount(context.count - 1)
     }
-
+    const navigate = useNavigate();
 
     /// this one is for creating the orders ////
     const handleCheckout = () => {
@@ -39,6 +39,8 @@ const CheckoutSideMenu = () => {
         const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
         const updatedOrders = [...savedOrders, orderToAdd];
         localStorage.setItem('orders', JSON.stringify(updatedOrders));
+        navigate(`/my-orders/${orderId}`);
+        console.log("checking order: " + orderId)
     }
 
 
@@ -69,9 +71,7 @@ const CheckoutSideMenu = () => {
                     <p>Products Qty: {context.cartProducts.length}</p>
                     <p >Total Products:  <span className='font-bold'>${totalvalue(context.cartProducts)}</span></p>
                 </div>
-                <Link to='/my-orders/last'>
-                    <Button btn_action={() => handleCheckout()} text="Check out" />
-                </Link>
+                <Button btn_action={() => handleCheckout()} text="Check out" />
             </div>
         </aside>
     )

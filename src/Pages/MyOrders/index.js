@@ -19,12 +19,13 @@ export default function MyOrders() {
             <div className='orders_Title'> My Orders</div>
             {filteredOrders.length > 0 ? (
                 <div className='orders_container' >
-                    {filteredOrders.map((order, index) => (
-                        <Link key={index} to={`/my-orders/${index}`}>
+                    {filteredOrders.map((order) => (
+                        <Link key={order.id} to={`/my-orders/${order.id}`}>
                             <OrdersCard
                                 TotalPrice={order.TotalPrice}
                                 totalqty={order.totalqty}
                                 date={order.date}
+
                             />
                         </Link>
                     ))}

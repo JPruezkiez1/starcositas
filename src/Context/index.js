@@ -53,7 +53,7 @@ export const ShoppingCartProvider = ({ children }) => {
             return items
         }
     }
-
+    console.log("All Orders:", order);
     //data loaders///
 
     //this one consumes the products API **** It just loads the info to a .json file.
