@@ -22,6 +22,7 @@ export default function MyProfile() {
                         <p>Email: <span className='info_01'>{context.loggedInUser && context.loggedInUser.email}</span></p>
                         <p>Username:<span className='info_01'>{context.loggedInUser && context.loggedInUser.username}</span></p>
                         <p>City:<span className='info_01'>{context.loggedInUser && context.loggedInUser.address.city}</span></p>
+                        <p>Orders:<span className='info_01'>{filteredOrders.length}</span></p>
                     </div>
                 </div>
                 <div className='userorder_container01'>

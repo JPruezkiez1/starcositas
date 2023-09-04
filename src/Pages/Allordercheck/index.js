@@ -4,37 +4,49 @@ import OrderSummary from '../../Components/OrderSummary'
 import { ShoppingCartContext } from '../../Context'
 import { Link } from 'react-router-dom'
 import './Styles.css'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Allordercheck() {
     const context = useContext(ShoppingCartContext)
     const orderId = window.location.pathname.split('/').pop();
-    const order = context.order.find(order => order.id === orderId);
+    // const order = context.order.find(order => order.id === orderId);
+    const [order, setOrder] = useState(null);
 
+    useEffect(() => {
+        const foundOrder = context.order.find(ordercita => ordercita.id === orderId);
+        setOrder(foundOrder);
+    }, [context.order, orderId]);
+
+    if (!order) {
+        return <p>Loading...</p>;
+    }
     return (
         <Layout>
-            <Link to='/allorders'>
-                <p className='returnto_orders'>Return to Allorders</p>
-            </Link>
-            <div className='myorder_container_01'>
-                <div className='myorder_productlist'>
-                    {order.products.map(product => (
-                        <OrderSummary
-                            key={product.id}
-                            id={product.id}
-                            title={product.title}
-                            imageUrl={product.image}
-                            price={product.price}
-                        />
-                    ))}
+            <div className='allordercheck'>
+                <h1 className='testie01'>Return to All Orders</h1>
+                <div className='myorder_container_01'>
+                    <div className='order_items'>
+                        {order.products.map(product => (
+                            <OrderSummary
+                                key={product.id}
+                                id={product.id}
+                                title={product.title}
+                                imageUrl={product.image}
+                                price={product.price}
+                            />
+                        ))}
+                    </div>
                 </div>
-                <div className='alldetails'>
+                <div className='dsp001_p3'>
                     <h2 className='font-bold'> Order Details</h2>
                     <p>Product Qty: {order.totalqty}</p>
                     <p>Total: ${order.TotalPrice}</p>
+                    <p>Order ID: {order.id}</p>
                 </div>
             </div>
         </Layout>
-    )
+    );
 }
 
 

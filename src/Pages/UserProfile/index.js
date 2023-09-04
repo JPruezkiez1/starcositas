@@ -5,14 +5,6 @@ import { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import OrdersCard from '../../Components/OrdersCard';
 
-
-
-
-
-
-
-
-
 export default function UserProfile() {
     const { userid } = useParams();
     const context = useContext(ShoppingCartContext);
@@ -44,6 +36,7 @@ export default function UserProfile() {
                         <p>Email: <span className='info_01'>{user.email}</span></p>
                         <p>Username: <span className='info_01'>{user.username}</span></p>
                         <p>City: <span className='info_01'>{user.address.city}</span></p>
+                        <p>Orders: <span className='info_01'>{filteredOrders.length}</span></p>
                     </div>
                 </div>
                 <div className='userorder_container01'>

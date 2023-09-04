@@ -1,36 +1,13 @@
-.myorder_productlist {
-    max-width: 650px;
-    gap: 20px 30px;
+.allordercheck {
     display: flex;
-    flex-grow: 1;
-    padding-top: 20px;
+    flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
-.returnto_orders {
-    color: blueviolet;
-    font-size: x-large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-}
-
-.order_summary {
+.testie01 {
+    justify-content: center;
     display: flex;
-    justify-content: flex-start;
-}
+    font-size: 24px;
+    color: #834AFD;
 
-.myorder_container_01 {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.alldetails {
-    display: flex;
-    flex-direction: column;
-    background: gray;
-    border-radius: 10px;
-    padding: 5px;
-    border: 1px solid black;
 }
