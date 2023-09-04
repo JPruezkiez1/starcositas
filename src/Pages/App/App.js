@@ -14,13 +14,14 @@ import AllOrders from '../AllOrders';
 import Allordercheck from '../Allordercheck';
 import MyProfile from '../MyProfile';
 import UserProfile from '../UserProfile/index.js';
-
+import Loading from '../../Components/Loading';
+import Register from '../Register/index.js';
 const AppRoutes = () => {
 
   let routes = useRoutes([
     { path: '/', element: <Store /> },
     { path: '/home', element: <Store /> },
-    // { path: '/Register', element: <Register /> },
+    { path: '/Register', element: <Register /> },
     { path: '/Order', element: <MyOrder /> },
     { path: '/my-order', element: <MyOrder /> },
     { path: '/my-orders/last', element: <MyOrder /> },
@@ -39,6 +40,7 @@ const AppRoutes = () => {
     { path: '/myprofile', element: <MyProfile /> },
     { path: '/user/', element: <UserProfile /> },
     { path: '/user/:userid', element: <UserProfile /> },
+    { path: '/animation', element: <Loading /> },
   ])
   return routes
 }

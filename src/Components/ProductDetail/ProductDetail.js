@@ -1,10 +1,9 @@
 import './Styles.css'
 import { ShoppingCartContext } from '../../Context'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 export default function ProductDetail() {
     const context = useContext(ShoppingCartContext)
-
     return (
         <div className={`${context.isProductDetailOpen ? 'flex' : 'hidden'} , productdetail_container`}>
             <div className='detailwicon'>

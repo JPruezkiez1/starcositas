@@ -3,7 +3,7 @@
     flex-direction: column;
     width: fit-content;
     min-height: fit-content;
-    max-height: max-content;
+    max-height: min-content;
     padding: 10px;
     background-color: #D9D9D9;
     justify-content: space-between;

@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const Product = (data) => {
     const navigate = useNavigate()
     const context = useContext(ShoppingCartContext)
+
     const showProduct = (productDetail) => {
         context.openProductDetail()
         context.closeCheckoutSideMenu()

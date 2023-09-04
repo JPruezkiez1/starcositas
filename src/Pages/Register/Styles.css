@@ -7,8 +7,7 @@
 
 .body_container {
     display: flex;
-    justify-content: center;
-
+    flex-direction: column;
 }
 
 
@@ -31,4 +30,19 @@
 .imageregister {
     width: 498px;
     height: 584px;
+}
+
+
+.text_section {
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 150px;
+}
+
+.text {
+    color: #834AFD;
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

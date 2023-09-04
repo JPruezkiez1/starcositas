@@ -34,9 +34,9 @@ export default function Login() {
 
     return (
         <RegisterLayout>
-            <div className='body_container'>
-                <img className="imageregister" src={registerimage} alt="Login" />
-                <div className='fieldsonly'>
+            <div className='body_container1'>
+                <img className="imageregister1" src={registerimage} alt="Login" />
+                <div className='fieldsonly1'>
                     <InputField
                         labelName="Username:"
                         type="text"
@@ -51,7 +51,7 @@ export default function Login() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <div className='button_container'>
+                    <div className='button_container1'>
                         <Button text='Login' btn_action={handleLogin} />
                     </div>
                 </div>

@@ -4,19 +4,38 @@ import { useEffect, useState, useContext } from "react"
 import './Styles.css'
 import { ShoppingCartContext } from "../../Context"
 import { Link } from "react-router-dom"
+import Loading from "../../Components/Loading"
+import BarLoader from "react-spinners/BarLoader"
+
 
 export default function Users() {
     const context = useContext(ShoppingCartContext);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 4000);
+    }, []);
+
 
     return (
         <Layout>
-            <div className="users_section">
-                {context.usertest?.map(user => (
-                    <Link to={`/user/${user.id}`} key={user.id}>
-                        <UserCard user={user} />
-                    </Link>
-                ))}
-            </div>
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <div className="users_section">
+                    {context.usertest?.map(user => (
+                        <Link to={`/user/${user.id}`} key={user.id}>
+                            <UserCard user={user} />
+                        </Link>
+                    ))}
+                </div>
+            )}
         </Layout>
     );
 }
+
+
+

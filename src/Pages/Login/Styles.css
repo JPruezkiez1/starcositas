@@ -5,7 +5,7 @@
 }
 
 
-.body_container {
+.body_container1 {
     display: flex;
     justify-content: center;
 
@@ -13,7 +13,7 @@
 
 
 
-.fieldsonly {
+.fieldsonly1 {
     align-self: center;
     gap: 5px;
     padding: 5px;
@@ -21,14 +21,14 @@
     flex-direction: column;
 }
 
-.button_container {
+.button_container1 {
     display: flex;
     justify-content: end;
     gap: 10px;
 
 }
 
-.imageregister {
+.imageregister1 {
     width: 498px;
     height: 584px;
 }

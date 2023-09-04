@@ -6,7 +6,7 @@
     justify-content: center;
     flex-wrap: wrap;
     max-width: 800px;
-    height: 650px;
+    max-height: min-content;
     overflow: scroll;
 }
 
