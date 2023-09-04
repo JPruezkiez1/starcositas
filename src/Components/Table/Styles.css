@@ -1,0 +1,58 @@
+.table_01 {
+    width: fit-content;
+    min-width: 650px;
+    margin-top: 10px;
+}
+
+
+.table_body {
+    text-align: center;
+}
+
+.image_usr {
+    width: 60px;
+    height: 60px;
+}
+
+.orderlist_01 {
+    padding-bottom: 1em;
+    border: 1px solid black;
+    max-height: 60px;
+}
+
+
+.ttqty {
+    width: 30px;
+    max-width: 30px;
+}
+
+.table_buttons {
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    padding-bottom: 0;
+    padding: 10px;
+
+}
+
+th {
+    border: 1px solid black;
+}
+
+td {
+
+    border: 1px solid black;
+}
+
+.button_001 {
+    font-weight: 500;
+    background: #834AFD;
+    border-radius: 15px;
+}
+
+.button_001:active {
+    background: #834afdb7;
+    transform: translateY(1px);
+}

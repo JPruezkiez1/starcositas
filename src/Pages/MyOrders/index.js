@@ -25,7 +25,7 @@ export default function MyOrders() {
                                 TotalPrice={order.TotalPrice}
                                 totalqty={order.totalqty}
                                 date={order.date}
-
+                                id={order.id}
                             />
                         </Link>
                     ))}

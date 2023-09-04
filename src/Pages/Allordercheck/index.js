@@ -5,39 +5,37 @@ import { ShoppingCartContext } from '../../Context'
 import { Link } from 'react-router-dom'
 import './Styles.css'
 
-export default function MyOrder() {
+export default function Allordercheck() {
     const context = useContext(ShoppingCartContext)
     const orderId = window.location.pathname.split('/').pop();
     const order = context.order.find(order => order.id === orderId);
 
     return (
         <Layout>
-            <div>
-                <h1>My Orders</h1>
-                <div className='myorder_container_01'>
-                    <div className='order_items'>
-                        {order.products.map(product => (
-                            <OrderSummary
-                                key={product.id}
-                                id={product.id}
-                                title={product.title}
-                                imageUrl={product.image}
-                                price={product.price}
-                            />
-                        ))}
-                    </div>
+            <Link to='/allorders'>
+                <p className='returnto_orders'>Return to Allorders</p>
+            </Link>
+            <div className='myorder_container_01'>
+                <div className='myorder_productlist'>
+                    {order.products.map(product => (
+                        <OrderSummary
+                            key={product.id}
+                            id={product.id}
+                            title={product.title}
+                            imageUrl={product.image}
+                            price={product.price}
+                        />
+                    ))}
                 </div>
-                <div className='dsp001_p3'>
+                <div className='alldetails'>
                     <h2 className='font-bold'> Order Details</h2>
                     <p>Product Qty: {order.totalqty}</p>
                     <p>Total: ${order.TotalPrice}</p>
-                    <p>Order ID: {order.id}</p>
                 </div>
             </div>
         </Layout>
     )
 }
-
 
 
 

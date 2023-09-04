@@ -14,7 +14,6 @@ export default function Navbar() {
         context.openCheckoutSideMenu()
     }
 
-
     const logout = () => {
         localStorage.removeItem('loggedInUser');
         context.setLoggedInUser(null);
@@ -43,7 +42,9 @@ export default function Navbar() {
         } else {
             return (
                 <>
-                    <div className='hover_001'>{context.loggedInUser && context.loggedInUser.username}</div>
+                    <NavLink to='/myprofile'>
+                        <li className='hover_001'>{context.loggedInUser && context.loggedInUser.username}</li>
+                    </NavLink>
                     <div className='hover_001' onClick={logout}>Logout</div>
                 </>
             );
@@ -85,6 +86,13 @@ export default function Navbar() {
             </div>
             <div className='icon_navbar_03'>
                 <ul className='navbar_03'>
+                    <li>
+                        <NavLink className={({ isActive }) =>
+                            isActive ? active : 'hover_001'
+                        } to='/allorders'>
+                            All Orders
+                        </NavLink>
+                    </li>
                     <li>
                         <NavLink className={({ isActive }) =>
                             isActive ? active : 'hover_001'

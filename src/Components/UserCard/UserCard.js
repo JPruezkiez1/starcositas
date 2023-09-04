@@ -1,13 +1,13 @@
 import Layout from "../Layout"
 import './Styles.css'
-export default function UserCard(user) {
+export default function UserCard({ user }) {
 
 
     return (
 
         <div className="container_user">
             <div>
-                <img className="img_user" src={user.user.image} alt="user" />
+                <img className="img_user" src={user.image} alt="user" />
             </div>
             <div className="user_det">
                 <div >
@@ -16,9 +16,9 @@ export default function UserCard(user) {
                     <p className="Label_001">User ID:</p>
                 </div>
                 <div className="info_user01">
-                    <span className="user_det02">{user.user.username}</span>
-                    <span className="user_det02">{user.user.password}</span>
-                    <span className="user_det02">{user.user.id}</span>
+                    <span className="user_det02">{user.username}</span>
+                    <span className="user_det02">{user.password}</span>
+                    <span className="user_det02">{user.id}</span>
                 </div>
             </div>
         </div>

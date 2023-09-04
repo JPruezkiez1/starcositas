@@ -1,17 +1,19 @@
 import Store from '../Store/index';
 import './App.css';
-import Register from '../Register/index'
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import Navbar from '../../Components/Navbar'
 import { ShoppingCartProvider } from '../../Context';
-import CheckoutSideMenu from '../../Components/Cart/Cart';
+import CheckoutSideMenu from '../../Components/SideMenu/Cart';
 import MyOrder from '../MyOrder';
 import MyOrders from '../MyOrders';
 import NotFound from '../NotFound';
 import Login from '../Login';
 import Users from '../Users/Users.js';
 import UserCard from '../../Components/UserCard/UserCard';
-
+import AllOrders from '../AllOrders';
+import Allordercheck from '../Allordercheck';
+import MyProfile from '../MyProfile';
+import UserProfile from '../UserProfile/index.js';
 
 const AppRoutes = () => {
 
@@ -31,7 +33,12 @@ const AppRoutes = () => {
     { path: '/jewelry', element: <Store /> },
     { path: '/users', element: <Users /> },
     { path: '/card', element: <UserCard /> },
-    { path: '/my-orders/:orderId', element: <MyOrder /> }
+    { path: '/my-orders/:orderId', element: <MyOrder /> },
+    { path: '/allorders', element: <AllOrders /> },
+    { path: '/check/:orderId', element: <Allordercheck /> },
+    { path: '/myprofile', element: <MyProfile /> },
+    { path: '/user/', element: <UserProfile /> },
+    { path: '/user/:userid', element: <UserProfile /> },
   ])
   return routes
 }

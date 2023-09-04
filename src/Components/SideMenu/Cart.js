@@ -1,15 +1,25 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
-import OrderCart from '../OrderCart/index'
+import CartItems from '../CartItems/index'
 import Button from '../Button/index'
 import { totalvalue } from '../../utility'
-import { Link } from 'react-router-dom'
 import './Styles.css'
-import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom'
 
 const CheckoutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
+    function generateShortId(length) {
+        const characters = 'ABCDE0123456789';
+        let shortId = '';
+
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            shortId += characters[randomIndex];
+        }
+
+        return shortId;
+    }
+
 
     const handleDelete = (id) => {
         const filteredCart = context.cartProducts.filter(product => product.id !== id)
@@ -18,10 +28,10 @@ const CheckoutSideMenu = () => {
     }
     const navigate = useNavigate();
 
-    /// this one is for creating the orders ////
+
     const handleCheckout = () => {
-        // Generate a unique order ID using uuidv4()
-        const orderId = uuidv4();
+
+        const orderId = generateShortId(8);
 
         const orderToAdd = {
             id: orderId, // Add the unique order ID
@@ -55,7 +65,7 @@ const CheckoutSideMenu = () => {
             <div className='flex flex-col gap-1 overflow-y-scroll'>
                 {
                     context.cartProducts?.map(product => (
-                        <OrderCart
+                        <CartItems
                             key={product.id}
                             id={product.id}
                             title={product.title}
