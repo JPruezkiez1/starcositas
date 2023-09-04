@@ -39,7 +39,7 @@ const AppRoutes = () => {
     { path: '/check/:orderId', element: <Allordercheck /> },
     { path: '/myprofile', element: <MyProfile /> },
     { path: '/user/', element: <UserProfile /> },
-    { path: '/user/:userid', element: <UserProfile /> },
+    { path: '/user/:username', element: <UserProfile /> },
     { path: '/animation', element: <Loading /> },
   ])
   return routes

@@ -15,9 +15,9 @@ export default function UserProfile() {
         }, 2000);
     }, []);
 
-    const { userid } = useParams();
+    const { username } = useParams();
     const context = useContext(ShoppingCartContext);
-    const user = context.usertest.find(user => user.id === parseInt(userid)); //transfor make sure value is number
+    const user = context.usertest.find(user => user.username === username); //transfor make sure value is number
     if (!user) {
         return (
             <Layout>

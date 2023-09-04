@@ -26,7 +26,7 @@ export default function Users() {
             ) : (
                 <div className="users_section">
                     {context.usertest?.map(user => (
-                        <Link to={`/user/${user.id}`} key={user.id}>
+                        <Link to={`/user/${user.username}`} key={user.id}>
                             <UserCard user={user} />
                         </Link>
                     ))}
