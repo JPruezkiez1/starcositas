@@ -10,14 +10,12 @@ import './Styles.css'
 
 export default function MyOrders() {
     const context = useContext(ShoppingCartContext);
-    // filter for orders, this one is based on the user who made them...
     const filteredOrders = context.loggedInUser ? context.order.filter(order => order.userId === context.loggedInUser.id) : [];
     const navigate = useNavigate();
 
     return (
         <Layout>
-            <div className='orders_Title'> My Orders</div>
-            {filteredOrders.length > 0 ? (
+            {context.isLogged ? (
                 <div className='orders_container' >
                     {filteredOrders.map((order) => (
                         <Link key={order.id} to={`/my-orders/${order.id}`}>
@@ -31,11 +29,13 @@ export default function MyOrders() {
                     ))}
                 </div>
             ) : (
-                <div className='noordersgg'>
-                    <Title text='No orders found...' />
-                    <Button text='Go back to the shop' btn_action={() => navigate('/')} />
-                </div>
+                <div> not logged bitch</div>
             )}
         </Layout>
     );
 }
+
+
+
+
+

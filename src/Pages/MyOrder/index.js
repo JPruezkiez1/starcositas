@@ -21,7 +21,7 @@ export default function MyOrder() {
 
     return (
         <Layout>
-            <div>
+            {context.isLogged ? (<div>
                 <h1>My Orders</h1>
                 <div className='myorder_container_01'>
                     <div className='order_items'>
@@ -42,7 +42,11 @@ export default function MyOrder() {
                     <p>Total: ${order.TotalPrice}</p>
                     <p>Order ID: {order.id}</p>
                 </div>
-            </div>
+            </div>) : (
+                <div>Please loggin to continue</div>
+            )}
+
+
         </Layout>
     );
 }
