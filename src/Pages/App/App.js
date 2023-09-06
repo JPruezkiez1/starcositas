@@ -14,24 +14,29 @@ import MyProfile from '../MyProfile';
 import UserProfile from '../UserProfile/index.js';
 import Register from '../Register/index.js';
 import OrderList from '../../Components/OrdersList';
+import Landing from '../../Pages/Landingpage/index.js'
 import Orders from '../Orders/index.js';
+import ProtectedRoute from '../../utility/Routes';
+
+
 
 const AppRoutes = () => {
 
   let routes = useRoutes([
-    { path: '/', element: <Store /> },
-    { path: '/home', element: <Store /> },
+    { path: '/', element: <ProtectedRoute><Store /></ProtectedRoute> },
+    { path: '/home', element: <ProtectedRoute><Store /></ProtectedRoute> },
     { path: '/Register', element: <Register /> },
     { path: '/Order', element: <MyOrder /> },
     { path: '/my-order', element: <MyOrder /> },
     { path: '/*', element: <NotFound /> },
     { path: '/my-orders/:id', element: <MyOrder /> },
-    { path: '/electronics', element: <Store /> },
+    { path: '/electronics', element: <ProtectedRoute><Store /></ProtectedRoute> },
     { path: '/login', element: <Login /> },
-    { path: '/jewelry', element: <Store /> },
+    { path: '/jewelry', element: <ProtectedRoute><Store /></ProtectedRoute> },
     { path: '/users', element: <Users /> },
     { path: '/card', element: <UserCard /> },
     { path: '/my-order/:orderId', element: <MyOrder /> },
+    { path: '/testie', element: <ProtectedRoute><AllOrders /></ProtectedRoute> },
     { path: '/allorders', element: <AllOrders /> },
     { path: '/check/:orderId', element: <MyOrder /> },
     { path: '/myprofile', element: <MyProfile /> },
@@ -39,6 +44,7 @@ const AppRoutes = () => {
     { path: '/user/:username', element: <UserProfile /> },
     { path: '/my-orders', element: <Orders /> },
     { path: '/list', element: <OrderList /> },
+    { path: '/landing', element: <Landing /> },
   ])
   return routes
 }

@@ -1,0 +1,14 @@
+.landing_container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.button_container1 {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 60px;
+    padding: 5px;
+}
