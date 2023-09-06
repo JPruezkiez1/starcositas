@@ -28,7 +28,7 @@ export default function Login() {
             context.setIsLogged(true);
             localStorage.setItem('loggedInUser', JSON.stringify(user));
         } else {
-            console.log('Login failed. Please check your credentials.');
+            alert('Invalid username or password');
         }
     };
 

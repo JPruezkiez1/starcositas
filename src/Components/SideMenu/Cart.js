@@ -49,7 +49,7 @@ const CheckoutSideMenu = () => {
         const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
         const updatedOrders = [...savedOrders, orderToAdd];
         localStorage.setItem('orders', JSON.stringify(updatedOrders));
-        navigate(`/my-orders/${orderId}`);
+        navigate(`/my-order/${orderId}`);
         console.log("checking order: " + orderId)
     }
 

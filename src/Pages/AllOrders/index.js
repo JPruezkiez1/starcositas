@@ -9,7 +9,6 @@ export default function AllOrders() {
     const [searchType, setSearchType] = useState('id');
     const context = useContext(ShoppingCartContext);
     const allOrders = context.order;
-    // get username with the userID from the order
     const getUsernameFromUserId = userId => {
         const user = context.usertest.find(user => user.id === userId);
         return user ? user.username : '';
@@ -32,14 +31,20 @@ export default function AllOrders() {
     };
     return (
         <Layout>
-            <Searchbar setSearchValue={setSearchValue} />
-            <select className='selector_01' onChange={handleSearchTypeChange}>
-                <option value='id'>Order ID</option>
-                <option value='user'>Username</option>
-            </select>
-            <div className='allorders_section'>
-                <Table orders={filteredOrders} />
-            </div>
+            <>
+                {context.isLogged && context.loggedInUser && context.loggedInUser.id === 1 ? (<>
+                    <Searchbar setSearchValue={setSearchValue} />
+                    <select className='selector_01' onChange={handleSearchTypeChange}>
+                        <option value='id'>Order ID</option>
+                        <option value='user'>Username</option>
+                    </select>
+                    <div className='allorders_section'>
+                        <Table orders={filteredOrders} />
+                    </div>
+                </>) : (
+                    <div> awoo bitch</div>
+                )}
+            </>
         </Layout>
     );
 }

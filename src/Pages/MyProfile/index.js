@@ -2,12 +2,10 @@ import './Styles.css'
 import Layout from '../../Components/Layout'
 import { ShoppingCartContext } from '../../Context'
 import { useContext } from 'react'
-import OrdersCard from '../../Components/OrdersCard'
-import { Link } from 'react-router-dom'
-
+import OrderList from '../../Components/OrdersList'
 export default function MyProfile() {
     const context = useContext(ShoppingCartContext)
-    const filteredOrders = context.loggedInUser ? context.order.filter(order => order.userId === context.loggedInUser.id) : [];
+    const orders = context.loggedInUser ? context.order.filter(order => order.userId === context.loggedInUser.id) : [];
 
     return (
         <Layout>
@@ -22,21 +20,13 @@ export default function MyProfile() {
                         <p>Email: <span className='info_01'>{context.loggedInUser && context.loggedInUser.email}</span></p>
                         <p>Username:<span className='info_01'>{context.loggedInUser && context.loggedInUser.username}</span></p>
                         <p>City:<span className='info_01'>{context.loggedInUser && context.loggedInUser.address.city}</span></p>
-                        <p>Orders:<span className='info_01'>{filteredOrders.length}</span></p>
+                        <p>Orders:<span className='info_01'>{orders.length}</span></p>
                     </div>
                 </div>
                 <div className='userorder_container01'>
-                    {filteredOrders.length > 0 ? (
+                    {orders.length > 0 ? (
                         <div className='orders_container' >
-                            {filteredOrders.map((order) => (
-                                <Link key={order.id} to={`/my-orders/${order.id}`}>
-                                    <OrdersCard
-                                        TotalPrice={order.TotalPrice}
-                                        totalqty={order.totalqty}
-                                        date={order.date}
-                                    />
-                                </Link>
-                            ))}
+                            <OrderList orders={orders} />
                         </div>
                     ) : (
                         <div className='noordersgg'>

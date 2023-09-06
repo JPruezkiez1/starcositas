@@ -3,11 +3,12 @@ import Layout from '../../Components/Layout';
 import { ShoppingCartContext } from '../../Context';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import OrdersCard from '../../Components/OrdersCard';
+import OrdersList from '../../Components/OrdersList';
 import Loading from '../../Components/Loading';
 
 export default function UserProfile() {
     const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
 
         setTimeout(() => {
@@ -52,16 +53,7 @@ export default function UserProfile() {
                     <div className='userorder_container01'>
                         {filteredOrders.length > 0 ? (
                             <div className='orders_container' >
-                                {filteredOrders.map((order) => (
-                                    <Link key={order.id} to={`/my-orders/${order.id}`}>
-                                        <OrdersCard
-                                            TotalPrice={order.TotalPrice}
-                                            totalqty={order.totalqty}
-                                            date={order.date}
-                                            id={order.id}
-                                        />
-                                    </Link>
-                                ))}
+                                <OrdersList orders={filteredOrders} />
                             </div>
                         ) : (
                             <div className='noordersgg'>
