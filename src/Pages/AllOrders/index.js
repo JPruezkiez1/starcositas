@@ -4,15 +4,17 @@ import Table from '../../Components/Table';
 import { ShoppingCartContext } from '../../Context';
 import './Styles.css';
 import Searchbar from '../../Components/Searchbar';
+
 export default function AllOrders() {
     const [searchValue, setSearchValue] = useState('');
     const [searchType, setSearchType] = useState('id');
     const context = useContext(ShoppingCartContext);
-    const allOrders = context.order;
+    const allOrders = context.order || []; // Ensure allOrders is an array or initialize it as an empty array
     const getUsernameFromUserId = userId => {
         const user = context.usertest.find(user => user.id === userId);
         return user ? user.username : '';
     };
+
     const filterOrdersBySearchValue = (orders, searchValue, type) => {
         return orders.filter(order => {
             if (type === 'id' && order.id && order.id.includes(searchValue)) {
@@ -24,11 +26,14 @@ export default function AllOrders() {
             return false;
         });
     };
+
     const filteredOrders = filterOrdersBySearchValue(allOrders, searchValue, searchType);
+
     const handleSearchTypeChange = event => {
         setSearchType(event.target.value);
         setSearchValue('');
     };
+
     return (
         <Layout>
             <>

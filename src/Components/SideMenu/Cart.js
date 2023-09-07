@@ -30,7 +30,6 @@ const CheckoutSideMenu = () => {
 
 
     const handleCheckout = () => {
-
         const orderId = generateShortId(8);
 
         const orderToAdd = {
@@ -41,16 +40,18 @@ const CheckoutSideMenu = () => {
             totalqty: context.cartProducts.length,
             TotalPrice: totalvalue(context.cartProducts)
         }
-        context.setOrder([...context.order, orderToAdd])
-        context.setCartProducts([])
-        context.closeCheckoutSideMenu()
 
-        /////// this bitch will basically save the orders into local storage//
-        const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
-        const updatedOrders = [...savedOrders, orderToAdd];
+        // Add the new order to the existing orders (order state)
+        context.setOrder([...context.order, orderToAdd]);
+        context.setCartProducts([]);
+        context.closeCheckoutSideMenu();
+
+        // Update local storage with the updated orders
+        const updatedOrders = [...context.order, orderToAdd];
         localStorage.setItem('orders', JSON.stringify(updatedOrders));
+
         navigate(`/my-order/${orderId}`);
-        console.log("checking order: " + orderId)
+        console.log("checking order: " + orderId);
     }
 
 
