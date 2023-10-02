@@ -28,3 +28,16 @@
 .title_01 {
     width: 250px;
 }
+
+.input_test {
+    font-family: 'Roboto', sans-serif;
+    all: unset;
+    max-width: 45px;
+}
+
+.qty_field {
+    display: flex;
+    background: white;
+    max-width: 45px;
+    border-radius: 10px;
+}

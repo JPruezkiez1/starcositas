@@ -14,12 +14,24 @@ export default function Table({ orders }) {
         const user = context.usertest.find(user => user.id === userId);
         return user ? user.username : '';
     }
-    const deleteorder = (orderId) => {
-        const updatedOrders = context.order.filter(order => order.id !== orderId);
-        context.setOrder(updatedOrders);
-        const savedOrders = JSON.parse(localStorage.getItem('orders')) || [];
-        const updatedSavedOrders = savedOrders.filter(order => order.id !== orderId);
-        localStorage.setItem('orders', JSON.stringify(updatedSavedOrders));
+    const deleteorder = async (orderId) => {
+        try {
+            const response = await fetch(`http://localhost:8080/delete/${orderId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                const updatedOrders = context.order.filter(order => order.id !== orderId);
+                context.setOrder(updatedOrders);
+                console.log(`Order with ID ${orderId} deleted successfully.`);
+            } else {
+                console.error(`Failed to delete order with ID ${orderId}.`);
+            }
+        } catch (error) {
+            console.error('Error deleting order:', error);
+        }
     };
 
     return (
@@ -42,7 +54,7 @@ export default function Table({ orders }) {
                             <td >{order.id}</td>
                             <td>{username(order.userId)}</td>
                             <td className='ttqty'>{order.totalqty}</td>
-                            <td >${order.TotalPrice}</td>
+                            <td >${order.totalPrice}</td>
                             <div className='table_buttons'>
 
 

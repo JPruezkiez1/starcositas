@@ -20,7 +20,7 @@ export default function OrderList({ orders }) {
                                     <div className='orderlist_container_2'>
                                         <p>Order ID: {order.id}</p>
                                         <p>Product QTY: {order.totalqty}</p>
-                                        <p>Total $ {order.TotalPrice}</p>
+                                        <p>Total $ {order.totalPrice}</p>
                                         <p>Date: {order.date}</p>
                                     </div>
                                     <div className='orderlist_container_products'>
@@ -31,6 +31,7 @@ export default function OrderList({ orders }) {
                                                 title={product.title}
                                                 imageUrl={product.image}
                                                 price={product.price}
+                                                Qty={product.quantity}
                                             />
                                         ))}
                                     </div>

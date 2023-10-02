@@ -6,4 +6,9 @@
     padding-top: 20px;
     justify-content: center;
     flex-wrap: wrap;
+
+}
+
+.hide_modal {
+    display: none;
 }

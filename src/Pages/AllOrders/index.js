@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Layout from '../../Components/Layout';
 import Table from '../../Components/Table';
 import { ShoppingCartContext } from '../../Context';
@@ -9,7 +9,12 @@ export default function AllOrders() {
     const [searchValue, setSearchValue] = useState('');
     const [searchType, setSearchType] = useState('id');
     const context = useContext(ShoppingCartContext);
-    const allOrders = context.order || []; // Ensure allOrders is an array or initialize it as an empty array
+
+    // Use useEffect to set up a listener for when context.order changes.
+    useEffect(() => {
+        const allOrders = context.order || [];
+    }, [context.order]);
+
     const getUsernameFromUserId = userId => {
         const user = context.usertest.find(user => user.id === userId);
         return user ? user.username : '';
@@ -17,7 +22,7 @@ export default function AllOrders() {
 
     const filterOrdersBySearchValue = (orders, searchValue, type) => {
         return orders.filter(order => {
-            if (type === 'id' && order.id && order.id.includes(searchValue)) {
+            if (type === 'id' && order.id && String(order.id).includes(searchValue)) {
                 return true;
             } else if (type === 'user') {
                 const username = getUsernameFromUserId(order.userId);
@@ -27,6 +32,7 @@ export default function AllOrders() {
         });
     };
 
+    const allOrders = context.order || []; // Ensure allOrders is an array or initialize it as an empty array
     const filteredOrders = filterOrdersBySearchValue(allOrders, searchValue, searchType);
 
     const handleSearchTypeChange = event => {

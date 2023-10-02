@@ -8,7 +8,7 @@ import './Styles.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-    const context = useContext(ShoppingCartContext);
+    const authcontext = useContext(ShoppingCartContext);
 
 
     const [password, setPassword] = useState('');
@@ -18,14 +18,14 @@ export default function Login() {
 
     const navigate = useNavigate();
     const handleLogin = () => {
-        const user = context.usertest.find(
+        const user = authcontext.usertest.find(
             (user) => user.username === username && user.password === password
         );
 
         if (user) {
             navigate('/');
-            context.setLoggedInUser(user);
-            context.setIsLogged(true);
+            authcontext.setLoggedInUser(user);
+            authcontext.setIsLogged(true);
             localStorage.setItem('loggedInUser', JSON.stringify(user));
         } else {
             alert('Invalid username or password');

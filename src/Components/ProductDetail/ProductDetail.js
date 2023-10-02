@@ -1,6 +1,6 @@
 import './Styles.css'
 import { ShoppingCartContext } from '../../Context'
-import { useContext, useState } from 'react'
+import { useContext, } from 'react'
 
 export default function ProductDetail() {
     const context = useContext(ShoppingCartContext)

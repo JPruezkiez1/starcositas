@@ -4,55 +4,69 @@ import CartItems from '../CartItems/index'
 import Button from '../Button/index'
 import { totalvalue } from '../../utility'
 import './Styles.css'
-import { useNavigate } from 'react-router-dom'
+
 
 const CheckoutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
+    const updateQuantity = (productId, newQuantity) => {
+        const updatedCart = context.cartProducts.map((product) => {
+            if (product.id === productId) {
+                return { ...product, quantity: newQuantity };
+            }
+            return product;
+        });
+        context.setCartProducts(updatedCart);
+    };
+
+
+
+
+
     function generateShortId(length) {
         const characters = 'ABCDE0123456789';
         let shortId = '';
-
         for (let i = 0; i < length; i++) {
             const randomIndex = Math.floor(Math.random() * characters.length);
             shortId += characters[randomIndex];
         }
-
         return shortId;
     }
-
-
     const handleDelete = (id) => {
         const filteredCart = context.cartProducts.filter(product => product.id !== id)
         context.setCartProducts(filteredCart)
         context.setCount(context.count - 1)
     }
-    const navigate = useNavigate();
-
-
-    const handleCheckout = () => {
-        const orderId = generateShortId(8);
-
-        const orderToAdd = {
-            id: orderId, // Add the unique order ID
-            date: new Date().toLocaleDateString(),
-            userId: context.loggedInUser.id,
-            products: context.cartProducts,
-            totalqty: context.cartProducts.length,
-            TotalPrice: totalvalue(context.cartProducts)
+    const handleCheckout = async () => {
+        try {
+            const orderId = generateShortId(8);
+            const orderToAdd = {
+                id: orderId,
+                customer_id: context.loggedInUser.id,
+                date: "2023-09-30",
+                products: context.cartProducts.map(product => ({
+                    product_id: product.id,
+                    quantity: product.quantity
+                }))
+            };
+            const response = await fetch('http://localhost:8080/add-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderToAdd),
+            });
+            if (response.ok) {
+                context.setCartProducts([]);
+                context.closeCheckoutSideMenu();
+                window.location.href = `/my-order/${orderId}`;
+                console.log("Order added successfully.");
+            } else {
+                console.error('Failed to add order.');
+            }
+        } catch (error) {
+            console.error('Error adding order:', error);
         }
-
-        // Add the new order to the existing orders (order state)
-        context.setOrder([...context.order, orderToAdd]);
-        context.setCartProducts([]);
-        context.closeCheckoutSideMenu();
-
-        // Update local storage with the updated orders
-        const updatedOrders = [...context.order, orderToAdd];
-        localStorage.setItem('orders', JSON.stringify(updatedOrders));
-
-        navigate(`/my-order/${orderId}`);
-        console.log("checking order: " + orderId);
-    }
+    };
 
 
     return (
@@ -71,6 +85,8 @@ const CheckoutSideMenu = () => {
                             id={product.id}
                             title={product.title}
                             imageUrl={product.image}
+                            quantity={product.quantity}
+                            updateQuantity={updateQuantity}
                             price={product.price}
                             handleDelete={handleDelete}
                         />
@@ -79,7 +95,7 @@ const CheckoutSideMenu = () => {
             </div>
             <div className='total_cartvalue'>
                 <div>
-                    <p>Products Qty: {context.cartProducts.length}</p>
+                    <p>Products Qty: {context.cartProducts.reduce((totalQty, product) => totalQty + product.quantity, 0)}</p>
                     <p >Total Products:  <span className='font-bold'>${totalvalue(context.cartProducts)}</span></p>
                 </div>
                 <Button btn_action={() => handleCheckout()} text="Check out" />

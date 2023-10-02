@@ -1,6 +1,5 @@
 .layout_01 {
     display: flex;
     flex-direction: column;
-    margin-top: 4rem;
-
+    margin-top: 7vh;
 }

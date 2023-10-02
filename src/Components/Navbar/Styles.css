@@ -2,10 +2,10 @@
     justify-content: space-between;
     display: flex;
     background: #834AFD;
-    height: 70px;
+    height: 7vh;
     width: 100%;
     align-items: center;
-    z-index: 12;
+    /* z-index: 12; */
     position: fixed;
     top: 0;
 }

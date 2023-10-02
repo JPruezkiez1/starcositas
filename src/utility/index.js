@@ -1,7 +1,5 @@
-const totalvalue = (products) => {
-    let sum = 0
-    products.forEach(product => sum += product.price)
-    return sum;
-}
-
-export { totalvalue }
+export const totalvalue = (cartProducts) => {
+    return cartProducts.reduce((total, product) => {
+        return total + product.price * product.quantity;
+    }, 0);
+};

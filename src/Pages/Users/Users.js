@@ -15,7 +15,7 @@ export default function Users() {
 
         setTimeout(() => {
             setIsLoading(false);
-        }, 4000);
+        }, 1000);
     }, []);
 
 

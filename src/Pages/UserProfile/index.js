@@ -10,7 +10,6 @@ export default function UserProfile() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-
         setTimeout(() => {
             setIsLoading(false);
         }, 2000);
@@ -18,18 +17,31 @@ export default function UserProfile() {
 
     const { username } = useParams();
     const context = useContext(ShoppingCartContext);
-    const user = context.usertest.find(user => user.username === username); //transfor make sure value is number
-    if (!user) {
+
+    if (!context.usertest || !context.order) {
+        // Handle the case where either context.usertest or context.order is not available yet.
         return (
             <Layout>
                 <div className='userinfo_container01'>
-                    <p>cannt find that hoe</p>
+                    <p>Loading...</p>
                 </div>
             </Layout>
         );
     }
-    const filteredOrders = user ? context.order.filter(order => order.userId === user.id) : [];
-    console.log(filteredOrders)
+
+    const user = context.usertest.find(user => user.username === username);
+
+    if (!user) {
+        return (
+            <Layout>
+                <div className='userinfo_container01'>
+                    <p>User not found.</p>
+                </div>
+            </Layout>
+        );
+    }
+
+    const filteredOrders = context.order.filter(order => order.userId === user.id);
 
     return (
         <Layout>
@@ -46,7 +58,7 @@ export default function UserProfile() {
                             <p>Last Name: <span className='info_01'>{user.lastName}</span></p>
                             <p>Email: <span className='info_01'>{user.email}</span></p>
                             <p>Username: <span className='info_01'>{user.username}</span></p>
-                            <p>City: <span className='info_01'>{user.address.city}</span></p>
+                            {/* <p>City: <span className='info_01'>{user.address.city}</span></p> */}
                             <p>Orders: <span className='info_01'>{filteredOrders.length}</span></p>
                         </div>
                     </div>
