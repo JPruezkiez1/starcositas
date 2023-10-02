@@ -16,7 +16,7 @@ export const ShoppingCartProvider = ({ children }) => {
     //////////// correct ?
     const [order, setOrder] = useState();
     useEffect(() => {
-        fetch('http://localhost:8080/orders')
+        fetch('https://ruby-calm-jaguar.cyclic.cloud/orders')
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, []);
@@ -67,12 +67,12 @@ export const ShoppingCartProvider = ({ children }) => {
     }, []);
     const [isLogged, setIsLogged] = useState(() => localStorage.getItem('loggedInUser'))
     useEffect(() => {
-        fetch('http://localhost:8080/products')
+        fetch('https://ruby-calm-jaguar.cyclic.cloud/products')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:8080/users')
+        fetch('https://ruby-calm-jaguar.cyclic.cloud/users')
             .then(res => res.json())
             .then(data => setUsertest(data))
     }, [])
