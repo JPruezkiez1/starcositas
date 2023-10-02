@@ -48,7 +48,7 @@ const CheckoutSideMenu = () => {
                     quantity: product.quantity
                 }))
             };
-            const response = await fetch('http://localhost:8080/add-order', {
+            const response = await fetch('https://ruby-calm-jaguar.cyclic.cloud/add-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
