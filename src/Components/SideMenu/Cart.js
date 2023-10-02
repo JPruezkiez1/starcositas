@@ -59,12 +59,9 @@ const CheckoutSideMenu = () => {
                 context.setCartProducts([]);
                 context.closeCheckoutSideMenu();
                 window.location.href = `/my-order/${orderId}`;
-                console.log("Order added successfully.");
             } else {
-                console.error('Failed to add order.');
             }
         } catch (error) {
-            console.error('Error adding order:', error);
         }
     };
 

@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 const Product = ({ data, toggle }) => {
     const navigate = useNavigate()
     const context = useContext(ShoppingCartContext)
-    console.log(data)
 
     const showProduct = (productDetail) => {
         context.setProductToShow(productDetail)
