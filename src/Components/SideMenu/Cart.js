@@ -61,7 +61,7 @@ const CheckoutSideMenu = () => {
             if (response.ok) {
                 context.setCartProducts([]);
                 context.closeCheckoutSideMenu();
-                window.location.href = `/my-order/${orderId}`;
+                window.location.href = `/check/${orderId}`;
             } else {
             }
         } catch (error) {
