@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&family=Roboto:ital,wght@1,300&display=swap');
+
 .product_container {
     width: 295px;
     height: 402px;
@@ -41,9 +43,31 @@
 
 .addedtocart_icon {
     display: flex;
-    color: #834AFD;
     align-self: center;
     width: 300%;
     height: 300%;
     object-fit: contain;
+    color: #834AFD;
+}
+
+.title_price_01 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.title_price_02 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+}
+
+.title_price_03 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.product_container:hover {
+    border: 1px solid;
+    transition-duration: 3s, 1s;
 }

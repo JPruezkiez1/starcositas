@@ -13,10 +13,10 @@ export const ShoppingCartProvider = ({ children }) => {
     const [items, setItems] = useState();
     const [usertest, setUsertest] = useState()
 
-    //////////// correct ?
+
     const [order, setOrder] = useState();
     useEffect(() => {
-        fetch('https://ruby-calm-jaguar.cyclic.cloud/orders')
+        fetch('https://jpruezkiez.azurewebsites.net/orders')
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, []);
@@ -67,12 +67,12 @@ export const ShoppingCartProvider = ({ children }) => {
     }, []);
     const [isLogged, setIsLogged] = useState(() => localStorage.getItem('loggedInUser'))
     useEffect(() => {
-        fetch('https://ruby-calm-jaguar.cyclic.cloud/products')
+        fetch('https://jpruezkiez.azurewebsites.net/products')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
     useEffect(() => {
-        fetch('https://ruby-calm-jaguar.cyclic.cloud/users')
+        fetch('https://jpruezkiez.azurewebsites.net/users')
             .then(res => res.json())
             .then(data => setUsertest(data))
     }, [])

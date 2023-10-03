@@ -49,12 +49,11 @@ const Product = ({ data, toggle }) => {
         <div >
 
             <div onClick={() => showProduct(data)} className='product_container cursor-pointer'>
-                <figure className='photo'>
-                    <img className='imageplace' src={data.image} alt={data.title} />
-                </figure>
+                <img className='photo' src={data.image} alt={data.title} />
                 <p className='title_price'>
-                    <span className='font-bold'>${data.price}</span>
-                    <span>{data.title}</span>
+                    <span className='title_price_01'>${data.price}</span>
+                    <span className='title_price_03'>{data.title}</span>
+                    <span className='title_price_02'>{data.description}</span>
                 </p>
                 {renderIcon(data.id)}
             </div>

@@ -5,7 +5,6 @@ import { useContext, useState } from 'react';
 
 const CartItems = (props) => {
     const { id, title, imageUrl, price, handleDelete, quantity, updateQuantity } = props;
-
     const initialQuantity = isNaN(quantity) || typeof quantity !== 'number' ? 1 : quantity;
 
     const [currentQuantity, setCurrentQuantity] = useState(initialQuantity);
@@ -23,12 +22,12 @@ const CartItems = (props) => {
             updateQuantity(id, newQuantity);
         }
     };
-    const context = useContext(ShoppingCartContext);
+
     let renderDelete;
     if (handleDelete) {
         renderDelete = <p onClick={() => handleDelete(id)}>X</p>;
     }
-    console.log(context.cartProducts)
+
     return (
         <div className="order_cart">
             <div className='imgandprice'>
@@ -37,15 +36,16 @@ const CartItems = (props) => {
                     <p className='font-bold'>${price}</p>
                     <p className='title_01'>{title}</p>
                     <div className='qty_field'>
-                        <button onClick={incrementQuantity}>+</button>
+                        <button className='qt_buttons_01' onClick={decrementQuantity}>-</button>
                         <input
                             className='input_test'
                             type="number"
                             readOnly
                             value={currentQuantity}
                         />
-                        <button onClick={decrementQuantity}>-</button>
+                        <button className='qt_buttons_01' onClick={incrementQuantity}> +</button>
                     </div>
+
                 </div>
                 {renderDelete}
             </div>

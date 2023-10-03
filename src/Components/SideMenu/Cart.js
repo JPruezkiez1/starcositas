@@ -19,9 +19,6 @@ const CheckoutSideMenu = () => {
     };
 
 
-
-
-
     function generateShortId(length) {
         const characters = 'ABCDE0123456789';
         let shortId = '';
@@ -31,11 +28,17 @@ const CheckoutSideMenu = () => {
         }
         return shortId;
     }
+
+
     const handleDelete = (id) => {
-        const filteredCart = context.cartProducts.filter(product => product.id !== id)
-        context.setCartProducts(filteredCart)
-        context.setCount(context.count - 1)
-    }
+        const filteredCart = context.cartProducts.filter(product => product.id !== id);
+        context.setCartProducts(filteredCart);
+        context.setCount(context.count - 1);
+
+        if (filteredCart.length === 0) {
+            context.closeCheckoutSideMenu();
+        }
+    };
     const handleCheckout = async () => {
         try {
             const orderId = generateShortId(8);
@@ -48,7 +51,7 @@ const CheckoutSideMenu = () => {
                     quantity: product.quantity
                 }))
             };
-            const response = await fetch('https://ruby-calm-jaguar.cyclic.cloud/add-order', {
+            const response = await fetch('https://jpruezkiez.azurewebsites.net/add-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

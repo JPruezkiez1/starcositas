@@ -1,10 +1,8 @@
 import './Styles.css'
 import Layout from '../../Components/Layout'
-import Modal from '../../Components/Modal'
 import SearchBar from '../../Components/Searchbar'
 import Product from '../../Components/Product'
 import { useContext, useState } from 'react'
-import ProductDetail from '../../Components/ProductDetail/ProductDetail'
 import React from 'react'
 import { Title } from '../../Components/Title/index.js'
 import { ShoppingCartContext } from '../../Context'
@@ -44,7 +42,6 @@ export default function Store() {
                     conditionalrenderforsearch()
                 }
             </div>
-            <ProductDetail />
             {showModal ? <NewView toggle={toggleShowModal} /> : null}
         </Layout>
     )
