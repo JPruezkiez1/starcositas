@@ -1,6 +1,6 @@
 import './Styles.css'
 const OrderSummary = props => {
-    const { id, title, imageUrl, price, Qty } = props
+    const { title, imageUrl, price, Qty } = props
 
     return (
         <div className="order_sum">

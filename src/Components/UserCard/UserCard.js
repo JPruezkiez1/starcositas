@@ -1,4 +1,3 @@
-import Layout from "../Layout"
 import './Styles.css'
 export default function UserCard({ user }) {
 

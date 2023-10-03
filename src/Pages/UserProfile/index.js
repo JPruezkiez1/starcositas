@@ -2,7 +2,7 @@ import './Styles.css';
 import Layout from '../../Components/Layout';
 import { ShoppingCartContext } from '../../Context';
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import OrdersList from '../../Components/OrdersList';
 import Loading from '../../Components/Loading';
 

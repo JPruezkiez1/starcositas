@@ -10,7 +10,6 @@ export default function AllOrders() {
     const [searchType, setSearchType] = useState('id');
     const context = useContext(ShoppingCartContext);
 
-    // Use useEffect to set up a listener for when context.order changes.
     useEffect(() => {
         const allOrders = context.order || [];
     }, [context.order]);

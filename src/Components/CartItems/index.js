@@ -1,6 +1,5 @@
 import './Styles.css'
-import { ShoppingCartContext } from '../../Context';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
 
 const CartItems = (props) => {
