@@ -11,7 +11,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "tailwindcss": "^3.3.3",
     "uuid": "^9.0.0",
     "vercel": "^32.1.0",
     "web-vitals": "^2.1.4"
@@ -34,9 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-router-dom": "^6.15.0",
-    "tailwindcss": "^3.3.3"
   }
 }
