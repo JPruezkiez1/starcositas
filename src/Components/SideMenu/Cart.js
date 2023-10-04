@@ -51,7 +51,7 @@ const CheckoutSideMenu = () => {
                     quantity: product.quantity
                 }))
             };
-            const response = await fetch('jpruezkiez.azurewebsites.net/add-order', {
+            const response = await fetch('https://jpruezkiez.azurewebsites.net/add-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
