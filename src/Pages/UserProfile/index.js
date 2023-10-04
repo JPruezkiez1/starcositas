@@ -17,9 +17,7 @@ export default function UserProfile() {
 
     const { username } = useParams();
     const context = useContext(ShoppingCartContext);
-
     if (!context.usertest || !context.order) {
-        // Handle the case where either context.usertest or context.order is not available yet.
         return (
             <Layout>
                 <div className='userinfo_container01'>
