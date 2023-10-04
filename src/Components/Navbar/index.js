@@ -70,7 +70,7 @@ export default function Navbar() {
                             isActive ? active : 'hover_001'
                         }
                             onClick={() => context.setSearchCategory('jewelery')}
-                            to='/jewelry'>
+                            to='/Chocolates'>
 
                             jewelry
                         </NavLink>

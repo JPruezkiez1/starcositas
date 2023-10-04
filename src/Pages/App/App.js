@@ -20,6 +20,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<ProtectedRoute><Store /></ProtectedRoute>} />
+      <Route path="/Chocolates" element={<ProtectedRoute><Store /></ProtectedRoute>} />
       <Route path="/Register" element={<AuthRoutes><Register /></AuthRoutes>} />
       <Route path="/login" element={<AuthRoutes><Login /></AuthRoutes>} />
       <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />

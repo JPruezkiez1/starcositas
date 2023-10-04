@@ -12,7 +12,7 @@ export default function NotFound() {
 
                 <div className='notfoundtext'>
                     <Title text="Ups... there was an error" />
-                    <div className='returnbutton'><Redirect to='/'><Button text="Return to home" /></Redirect></div>
+                    <div className='returnbutton'><Button btn_action={() => window.location.href = `/`} text="Return to home" /></div>
                 </div>
             </div>
         </Layout>
