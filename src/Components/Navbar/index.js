@@ -69,10 +69,10 @@ export default function Navbar() {
                         <NavLink className={({ isActive }) =>
                             isActive ? active : 'hover_001'
                         }
-                            onClick={() => context.setSearchCategory('jewelery')}
-                            to='/Chocolates'>
 
-                            jewelry
+                            to='/Chocolate'>
+
+                            Chocolates
                         </NavLink>
                     </li>
                     <li>

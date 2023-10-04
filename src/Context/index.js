@@ -10,52 +10,48 @@ export const ShoppingCartProvider = ({ children }) => {
     const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
     const [productToShow, setProductToShow] = useState({});
     const [cartProducts, setCartProducts] = useState([]);
-    const [items, setItems] = useState();
-    const [usertest, setUsertest] = useState()
-
-
-    const [order, setOrder] = useState();
-    useEffect(() => {
-        fetch('https://jpruezkiez.azurewebsites.net/orders')
-            .then((res) => res.json())
-            .then((data) => setOrder(data));
-    }, []);
-
-
-    const [searchValue, setSearchValue] = useState(null);;
-    const [searchCategory, setSearchCategory] = useState(null);;
-    const [filteredItems, setFilteredItems] = useState()
-    const filteredItemsByTitle = (items, searchValue) => {
-        return items?.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-    }
-    const filteredItemsByCategory = (items, searchCategory) => {
-        return items?.filter(item => item.category.toLowerCase().includes(searchCategory.toLowerCase()))
-    }
-    const filterBy = (searchType, items, searchValue, searchCategory) => {
-        if (searchType === 'BY_TITLE') {
-            return filteredItemsByTitle(items, searchValue)
-        }
-        if (searchType === 'BY_CATEGORY') {
-            return filteredItemsByCategory(items, searchCategory)
-        }
-        if (searchType === 'BY_TITLE_AND_CATEGORY') {
-            return filteredItemsByCategory(items, searchCategory, searchValue).filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-        }
-        if (!searchType) {
-            return items
-        }
-    }
-    useEffect(() => {
-        if (searchValue && searchCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchValue, searchCategory))
-        if (searchValue && !searchCategory) setFilteredItems(filterBy('BY_TITLE', items, searchValue, searchCategory))
-        if (!searchValue && searchCategory) setFilteredItems(filterBy('BY_CATEGORY', items, searchValue, searchCategory))
-        if (!searchValue && !searchCategory) setFilteredItems(filterBy(null, items, searchValue, searchCategory))
-    }, [searchValue, searchCategory, items])
+    const [items, setItems] = useState([]);
+    const [usertest, setUsertest] = useState([]);
+    const [order, setOrder] = useState([]);
+    const [searchValue, setSearchValue] = useState(null);
+    const [searchCategory, setSearchCategory] = useState(null);
+    const [filteredItems, setFilteredItems] = useState([]);
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [loggedInUser, setLoggedInUser] = useState(null);
+
+
+
+    const filteredItemsByTitle = (itemsToFilter, searchValue) => {
+        return itemsToFilter.filter(item =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+    };
+    const filteredItemsByCategory = (itemsToFilter, searchCategory) => {
+        return itemsToFilter.filter(item =>
+            item.category.toLowerCase().includes(searchCategory.toLowerCase())
+        );
+    };
+    const applyFilters = () => {
+        let filtered = items;
+        if (searchValue) {
+            filtered = filteredItemsByTitle(filtered, searchValue);
+        }
+        if (searchCategory) {
+            filtered = filteredItemsByCategory(filtered, searchCategory);
+        }
+        setFilteredItems(filtered);
+    };
+    useEffect(() => {
+        applyFilters();
+    }, [searchValue, searchCategory, items]);
+
+
+
+
+
 
     useEffect(() => {
         const savedUser = localStorage.getItem('loggedInUser');
@@ -76,6 +72,12 @@ export const ShoppingCartProvider = ({ children }) => {
             .then(res => res.json())
             .then(data => setUsertest(data))
     }, [])
+
+    useEffect(() => {
+        fetch('https://jpruezkiez.azurewebsites.net/orders')
+            .then((res) => res.json())
+            .then((data) => setOrder(data));
+    }, []);
     return (
         <ShoppingCartContext.Provider value={{
             count,

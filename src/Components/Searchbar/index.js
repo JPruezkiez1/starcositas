@@ -1,6 +1,6 @@
 import SearchIcon from "./search.svg"
 import './Styles.css'
-export default function SearchBar({ searchValue, setSearchValue }) {
+export default function SearchBar({ setSearchValue }) {
     return (
         <div className='search_container'>
             <input className="search_input" placeholder='Search...'
