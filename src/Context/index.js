@@ -16,7 +16,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
     const [order, setOrder] = useState();
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('jpruezkiez.azurewebsites.net/orders')
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, []);
@@ -67,12 +67,12 @@ export const ShoppingCartProvider = ({ children }) => {
     }, []);
     const [isLogged, setIsLogged] = useState(() => localStorage.getItem('loggedInUser'))
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('jpruezkiez.azurewebsites.netproducts')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('jpruezkiez.azurewebsites.net/users')
             .then(res => res.json())
             .then(data => setUsertest(data))
     }, [])
