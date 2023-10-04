@@ -1,12 +1,5 @@
 {
-    "routes": [
-        {
-            "route": "/*",
-            "serve": "/index.html",
-            "statusCode": 200
-        }
-    ],
-    "globalHeaders": {
-        "Cache-Control": "no-store, must-revalidate, max-age=0"
+    "navigationFallback": {
+        "rewrite": "index.html"
     }
 }
