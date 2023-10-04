@@ -1,23 +1,12 @@
 {
-    "routes": [
-        {
-            "route": "/*",
-            "serve": "/index.html",
-            "statusCode": 200
-        }
-    ],
-    "platformErrorOverrides": [
-        {
-            "errorType": "NotFound",
-            "serve": "/404"
-        },
-        {
-            "errorType": "Unauthenticated",
-            "statusCode": "302",
-            "serve": "/login"
-        }
-    ],
+    "navigationFallback": {
+        "rewrite": "index.html",
+        "exclude": [
+            "/static/media/*.{png,jpg,jpeg,gif,bmp}",
+            "/static/css/*"
+        ]
+    },
     "mimeTypes": {
-        "json": "application/json"
+        ".json": "text/json"
     }
 }
