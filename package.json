@@ -1,7 +1,7 @@
 {
   "name": "starcositas",
   "version": "1.1.0",
-  "homepage": ".",
+  "homepage": "https://witty-desert-004278b10.3.azurestaticapps.net/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
