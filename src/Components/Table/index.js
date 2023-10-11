@@ -16,7 +16,7 @@ export default function Table({ orders }) {
     }
     const deleteorder = async (orderId) => {
         try {
-            const response = await fetch(`https://jpruezkiez.azurewebsites.net/delete/${orderId}`, {
+            const response = await fetch(`http://34.75.37.247:8080/delete/${orderId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

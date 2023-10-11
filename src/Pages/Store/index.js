@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom';
 export default function Store() {
     const [showModal, setShowModal] = useState(false);
     const context = useContext(ShoppingCartContext);
-
     const { category } = useParams();
     const toggleShowModal = () => {
         setShowModal(!showModal);

@@ -63,21 +63,23 @@ export const ShoppingCartProvider = ({ children }) => {
     }, []);
     const [isLogged, setIsLogged] = useState(() => localStorage.getItem('loggedInUser'))
     useEffect(() => {
-        fetch('https://jpruezkiez.azurewebsites.net/products')
+        fetch('http://34.75.37.247:8080/products')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
     useEffect(() => {
-        fetch('https://jpruezkiez.azurewebsites.net/users')
+        fetch('http://34.75.37.247:8080/users')
             .then(res => res.json())
             .then(data => setUsertest(data))
     }, [])
 
     useEffect(() => {
-        fetch('https://jpruezkiez.azurewebsites.net/orders')
+        fetch('http://34.75.37.247:8080/orders')
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, []);
+
+    console.log(usertest)
     return (
         <ShoppingCartContext.Provider value={{
             count,

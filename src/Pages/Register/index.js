@@ -46,7 +46,7 @@ export default function Register() {
         }
 
         try {
-            const response = await fetch('https://ruby-calm-jaguar.cyclic.cloud/add-customer', {
+            const response = await fetch('http://34.75.37.247:8080/add-customer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
