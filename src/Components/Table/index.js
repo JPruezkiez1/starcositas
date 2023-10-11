@@ -16,7 +16,7 @@ export default function Table({ orders }) {
     }
     const deleteorder = async (orderId) => {
         try {
-            const response = await fetch(`http://34.75.37.247:8080/delete/${orderId}`, {
+            const response = await fetch(`https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/delete/${orderId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

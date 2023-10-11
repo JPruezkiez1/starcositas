@@ -46,7 +46,7 @@ export default function Register() {
         }
 
         try {
-            const response = await fetch('http://34.75.37.247:8080/add-customer', {
+            const response = await fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/add-customer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

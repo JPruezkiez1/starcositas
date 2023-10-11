@@ -63,18 +63,18 @@ export const ShoppingCartProvider = ({ children }) => {
     }, []);
     const [isLogged, setIsLogged] = useState(() => localStorage.getItem('loggedInUser'))
     useEffect(() => {
-        fetch('http://34.75.37.247:8080/products')
+        fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/products')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
     useEffect(() => {
-        fetch('http://34.75.37.247:8080/users')
+        fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/users')
             .then(res => res.json())
             .then(data => setUsertest(data))
     }, [])
 
     useEffect(() => {
-        fetch('http://34.75.37.247:8080/orders')
+        fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/orders')
             .then((res) => res.json())
             .then((data) => setOrder(data));
     }, []);
