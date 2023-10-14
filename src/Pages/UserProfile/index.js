@@ -56,8 +56,8 @@ export default function UserProfile() {
                             <p>Last Name: <span className='info_01'>{user.lastName}</span></p>
                             <p>Email: <span className='info_01'>{user.email}</span></p>
                             <p>Username: <span className='info_01'>{user.username}</span></p>
-                            <p>Orders: <span className='info_01'>{filteredOrders.length}</span></p>
-                            <p>Status: <span className='info_01'>{filteredOrders.length}</span></p>
+                            <p>Password: <span className='info_01'>{user.password}</span></p>
+                            <p>orders: <span className='info_01'>{filteredOrders.length}</span></p>
                         </div>
                     </div>
                     <div className='userorder_container01'>

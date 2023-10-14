@@ -1,10 +1,8 @@
 runtime: nodejs18
 service: starcositas
 handlers:
-  - url: /
+  - url: /static
+    static_dir: build/static
+  - url: /(.*)
     static_files: build/index.html
     upload: build/index.html
-
-  - url: /(.*)
-    static_files: build/\1
-    upload: build/(.*)

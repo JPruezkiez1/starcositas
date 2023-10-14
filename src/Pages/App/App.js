@@ -1,6 +1,6 @@
 import Store from '../Store/index';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Use Routes and Route instead of useRoutes
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
 import { ShoppingCartProvider } from '../../Context';
 import CheckoutSideMenu from '../../Components/SideMenu/Cart';
@@ -23,7 +23,7 @@ const AppRoutes = () => {
       <Route path="/:category" element={<ProtectedRoute><Store /></ProtectedRoute>} />
       <Route path="/Register" element={<AuthRoutes><Register /></AuthRoutes>} />
       <Route path="/login" element={<AuthRoutes><Login /></AuthRoutes>} />
-      <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />
+      <Route path="/users" element={<Users />} />
       <Route path="/my-order/:orderId" element={<ProtectedRoute><MyOrder /></ProtectedRoute>} />
       <Route path="/allorders" element={<ProtectedRoute><AllOrders /></ProtectedRoute>} />
       <Route path="/check/:orderId" element={<MyOrder />} />

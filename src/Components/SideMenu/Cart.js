@@ -3,6 +3,7 @@ import { ShoppingCartContext } from '../../Context'
 import CartItems from '../CartItems/index'
 import Button from '../Button/index'
 import { totalvalue } from '../../utility'
+import Orders from '../../Data/orders.json';
 import './Styles.css'
 
 
@@ -39,32 +40,30 @@ const CheckoutSideMenu = () => {
             context.closeCheckoutSideMenu();
         }
     };
-    const handleCheckout = async () => {
+    const handleCheckout = () => {
         try {
             const orderId = generateShortId(8);
+            const currentDate = new Date().toISOString().slice(0, 10);
             const orderToAdd = {
                 id: orderId,
-                customer_id: context.loggedInUser.id,
-                date: "2023-09-30",
+                userId: context.loggedInUser.id,
+                date: currentDate,
                 products: context.cartProducts.map(product => ({
                     product_id: product.id,
                     quantity: product.quantity
                 }))
             };
-            const response = await fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com//add-order', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(orderToAdd),
-            });
-            if (response.ok) {
-                context.setCartProducts([]);
-                context.closeCheckoutSideMenu();
-                window.location.href = `/check/${orderId}`;
-            } else {
-            }
+
+
+            const ordersFromLocalStorage = localStorage.getItem('orders');
+            const existingOrders = ordersFromLocalStorage ? JSON.parse(ordersFromLocalStorage) : Orders;
+            const updatedOrders = [...existingOrders, orderToAdd];
+            localStorage.setItem('orders', JSON.stringify(updatedOrders));
+            context.setCartProducts([]);
+            context.closeCheckoutSideMenu();
+            window.location.href = `/check/${orderId}`;
         } catch (error) {
+            console.error("Error saving order to local storage: ", error);
         }
     };
 

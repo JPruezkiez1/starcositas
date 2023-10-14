@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1,
+        "title": "Chocolate Bar",
+        "description": "A classic milk chocolate bar",
+        "category": "Chocolate",
+        "price": 3,
+        "image": "https://shapegrams.com/wp-content/uploads/2021/12/Chocolate-Bar-Featured-Image.png"
+    },
+    {
+        "id": 2,
+        "title": "Dark Chocolate Truffles",
+        "description": "Rich and smooth dark chocolate truffles",
+        "category": "Chocolate",
+        "price": 2.49,
+        "image": "https://target.scene7.com/is/image/Target/GUEST_091bc3ec-5a03-43dc-a826-4bb535835e3b?wid=488&hei=488&fmt=pjpeg"
+    },
+    {
+        "id": 3,
+        "title": "Milk Chocolate Kisses",
+        "description": "Sweet and creamy milk chocolate kisses",
+        "category": "Chocolate",
+        "price": 0.99,
+        "image": "https://http2.mlstatic.com/D_NQ_NP_847210-MCO43178545664_082020-O.webp"
+    },
+    {
+        "id": 4,
+        "title": "Chocolate Covered Almonds",
+        "description": "Crunchy almonds coated in milk chocolate",
+        "category": "Chocolate",
+        "price": 2.99,
+        "image": "https://m.media-amazon.com/images/I/51ocwjof7ML.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Chocolate Hazelnut Spread",
+        "description": "Creamy chocolate and hazelnut spread",
+        "category": "Chocolate",
+        "price": 3.49,
+        "image": "https://target.scene7.com/is/image/Target/GUEST_aed2d007-06a3-4015-b656-486f5a1f9a07?wid=488&hei=488&fmt=pjpeg"
+    },
+    {
+        "id": 6,
+        "title": "Fruit Gummy Bears",
+        "description": "Assorted fruit-flavored gummy bears",
+        "category": "Gummies",
+        "price": 1.49,
+        "image": "https://www.gosupps.com/media/catalog/product/8/1/81wy7-GTP2L.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Sour Gummy Worms",
+        "description": "Tangy and chewy sour gummy worms",
+        "category": "Gummies",
+        "price": 1.99,
+        "image": "https://m.media-amazon.com/images/I/91Kad-jepLL.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Cola Bottle Gummies",
+        "description": "Gummy candies in the shape of cola bottles",
+        "category": "Gummies",
+        "price": 1.29,
+        "image": "https://assets.haribo.com/image/upload/s--VB-EMSRc--/ar_2700:3722,c_fill,f_auto,q_60/w_732/v1/consumer-sites/en-us/Products/Haribo-US-Happy-Cola-5-oz.png"
+    },
+    {
+        "id": 9,
+        "title": "Fruit Slice Gummies",
+        "description": "Fruit-shaped gummy candies",
+        "category": "Gummies",
+        "price": 1.79,
+        "image": "https://crazyoutletcandy.com/cdn/shop/products/81LdiCZf34L._SL1500_1000x1000.jpg?v=1687972120"
+    },
+    {
+        "id": 10,
+        "title": "Rainbow Gummy Rings",
+        "description": "Colorful and fruity gummy rings",
+        "category": "Gummies",
+        "price": 1.99,
+        "image": "https://i5.walmartimages.com/asr/7b8dc9bd-4b9e-486c-be3c-36362a3cf8c6.7c97039766119baba4bf62778c6af77c.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
+    },
+    {
+        "id": 11,
+        "title": "Peppermint Hard Candy",
+        "description": "Refreshing peppermint-flavored hard candy",
+        "category": "Hard Candy",
+        "price": 0.99,
+        "image": "https://i5.walmartimages.com/seo/Great-Value-Peppermint-Starlight-Mints-Hard-Candy-10-oz_ad7b2890-985d-4f43-b86f-597613a96623.3d11db5121fd91a2fb532840731393ff.jpeg"
+    },
+    {
+        "id": 12,
+        "title": "Cinnamon Drops",
+        "description": "Spicy and sweet cinnamon hard candies",
+        "category": "Hard Candy",
+        "price": 1.29,
+        "image": "https://m.media-amazon.com/images/I/61D1-1sX+KL.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Butterscotch Discs",
+        "description": "Classic butterscotch-flavored hard candies",
+        "category": "Hard Candy",
+        "price": 0.89,
+        "image": "https://images.heb.com/is/image/HEBGrocery/001857637-1"
+    },
+    {
+        "id": 14,
+        "title": "Fruit Flavor Jolly Ranchers",
+        "description": "Assorted fruit-flavored hard candies",
+        "category": "Hard Candy",
+        "price": 1.49,
+        "image": "https://target.scene7.com/is/image/Target/GUEST_377953bf-7b0e-46d7-853a-30071d70cdc7?wid=488&hei=488&fmt=pjpeg"
+    },
+    {
+        "id": 15,
+        "title": "Lemon Drops",
+        "description": "Tangy and zesty lemon-flavored hard candies",
+        "category": "Hard Candy",
+        "price": 1.19,
+        "image": "https://i5.walmartimages.com/seo/Brach-s-Sugar-Free-Lemon-Drops-Hard-Candy-4-5-Oz_77b3c605-3e42-42a2-af53-0d8b22e643b1_1.38e3e99e60e520db598d9390152490e8.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF"
+    },
+    {
+        "id": 16,
+        "title": "Black Licorice Twists",
+        "description": "Traditional black licorice twists",
+        "category": "Licorice",
+        "price": 1.29,
+        "image": "https://www.gosupps.com/media/catalog/product/7/1/71MkbSZiLEL_1.jpg"
+    },
+    {
+        "id": 17,
+        "title": "Red Licorice Laces",
+        "description": "Chewy red licorice laces",
+        "category": "Licorice",
+        "price": 0.99,
+        "image": "https://cdn.shopify.com/s/files/1/0377/0272/9865/products/GJV-Broadway-Laces-Strawberry-ProductImage3.jpg?v=1591285896"
+    },
+    {
+        "id": 18,
+        "title": "Licorice Allsorts",
+        "description": "Assorted licorice candy shapes and flavors",
+        "category": "Licorice",
+        "price": 1.99,
+        "image": "https://waterbridge.net/cdn/shop/products/Allsorts200g.png?v=1628445787"
+    },
+    {
+        "id": 19,
+        "title": "Chocolate Coated Licorice",
+        "description": "Licorice sticks coated in milk chocolate",
+        "category": "Licorice",
+        "price": 2.49,
+        "image": "https://cdn0.woolworths.media/content/wowproductimages/large/315710.jpg"
+    },
+    {
+        "id": 20,
+        "title": "Fruit Punch Licorice",
+        "description": "Fruit-flavored licorice twists",
+        "category": "Licorice",
+        "price": 1.49,
+        "image": "https://shop.americanlicorice.com/cdn/shop/products/sour-punch-bites-fan-favorites-9oz-bag-652522.jpg?v=1652472122"
+    },
+    {
+        "id": 21,
+        "title": "Sour Patch Kids",
+        "description": "Tangy and chewy sour fruit candy",
+        "category": "Sour Candy",
+        "price": 1.79,
+        "image": "https://i5.walmartimages.com/seo/SOUR-PATCH-KIDS-Watermelon-Soft-Chewy-Candy-8-oz-Bag_42a5f7e8-60b0-4892-b55e-a86b5070b4e0.bc233430cfbf4bea31567b46648e050e.jpeg"
+    },
+    {
+        "id": 22,
+        "title": "Warheads Extreme Sour",
+        "description": "Intensely sour hard candies",
+        "category": "Sour Candy",
+        "price": 1.99,
+        "image": "https://i5.walmartimages.com/seo/Warheads-Extreme-Sour-Hard-Candy-3-25-oz_73407496-a6a1-4c11-9648-b10020b223b8.ca909c92ad3b3046da0a7dd4c7230caf.jpeg"
+    },
+    {
+        "id": 23,
+        "title": "Sour Belts",
+        "description": "Sour and fruity candy belts",
+        "category": "Sour Candy",
+        "price": 1.59,
+        "image": "https://m.media-amazon.com/images/I/91IPBqKe3qL.jpg"
+    },
+    {
+        "id": 24,
+        "title": "Sour Watermelon Slices",
+        "description": "Sour watermelon-flavored gummy slices",
+        "category": "Sour Candy",
+        "price": 1.69,
+        "image": "https://cdn0.woolworths.media/content/wowproductimages/large/225473.jpg"
+    },
+    {
+        "id": 25,
+        "title": "Sour Apple Rings",
+        "description": "Sour apple-flavored gummy rings",
+        "category": "Sour Candy",
+        "price": 1.49,
+        "image": "https://m.media-amazon.com/images/I/71zomaDWC0L.jpg"
+    }
+]

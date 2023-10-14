@@ -9,16 +9,13 @@ export default function AllOrders() {
     const [searchValue, setSearchValue] = useState('');
     const [searchType, setSearchType] = useState('id');
     const context = useContext(ShoppingCartContext);
-
     useEffect(() => {
         const allOrders = context.order || [];
     }, [context.order]);
-
     const getUsernameFromUserId = userId => {
         const user = context.usertest.find(user => user.id === userId);
         return user ? user.username : '';
     };
-
     const filterOrdersBySearchValue = (orders, searchValue, type) => {
         return orders.filter(order => {
             if (type === 'id' && order.id && String(order.id).includes(searchValue)) {
@@ -30,15 +27,12 @@ export default function AllOrders() {
             return false;
         });
     };
-
-    const allOrders = context.order || []; // Ensure allOrders is an array or initialize it as an empty array
+    const allOrders = context.order || [];
     const filteredOrders = filterOrdersBySearchValue(allOrders, searchValue, searchType);
-
     const handleSearchTypeChange = event => {
         setSearchType(event.target.value);
         setSearchValue('');
     };
-
     return (
         <Layout>
             <>
@@ -52,7 +46,7 @@ export default function AllOrders() {
                         <Table orders={filteredOrders} />
                     </div>
                 </>) : (
-                    <div> awoo bitch</div>
+                    <div> login to see this! you gotta be user 1</div>
                 )}
             </>
         </Layout>

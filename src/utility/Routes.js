@@ -9,13 +9,10 @@ const ProtectedRoute = ({ children }) => {
 };
 
 const AuthRoutes = ({ children }) => {
-    const context = useContext(ShoppingCartContext); // Access the context
-
-    // Check if the user is logged in
+    const context = useContext(ShoppingCartContext);
     if (context.isLogged) {
-        return <Navigate to="/" />; // Render the child components if logged in
+        return <Navigate to="/" />;
     } else {
-        // Redirect to the home page or any other page for non-logged-in users
         return children;
     }
 };

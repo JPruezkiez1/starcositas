@@ -1,4 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
+import Products from '../Data/products.json'
+import Users from '../Data/users.json'
+import Orders from '../Data/orders.json'
 export const ShoppingCartContext = createContext();
 export const ShoppingCartProvider = ({ children }) => {
     const [count, setCount] = useState(0);
@@ -10,9 +13,8 @@ export const ShoppingCartProvider = ({ children }) => {
     const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false);
     const [productToShow, setProductToShow] = useState({});
     const [cartProducts, setCartProducts] = useState([]);
-    const [items, setItems] = useState([]);
-    const [usertest, setUsertest] = useState([]);
-    const [order, setOrder] = useState([]);
+    const [items, setItems] = useState(Products);
+    const [usertest, setUsertest] = useState(Users);
     const [searchValue, setSearchValue] = useState(null);
     const [searchCategory, setSearchCategory] = useState(null);
     const [filteredItems, setFilteredItems] = useState([]);
@@ -21,6 +23,20 @@ export const ShoppingCartProvider = ({ children }) => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [loggedInUser, setLoggedInUser] = useState(null);
+
+    const initializeOrders = () => {
+        const ordersFromStorage = localStorage.getItem('orders');
+        if (ordersFromStorage) {
+            const storedOrders = JSON.parse(ordersFromStorage);
+            return [...Orders, ...storedOrders];
+        }
+        return Orders;
+    };
+
+    const [order, setOrder] = useState(initializeOrders());
+
+
+
 
 
 
@@ -47,12 +63,6 @@ export const ShoppingCartProvider = ({ children }) => {
     useEffect(() => {
         applyFilters();
     }, [searchValue, searchCategory, items]);
-
-
-
-
-
-
     useEffect(() => {
         const savedUser = localStorage.getItem('loggedInUser');
         if (savedUser) {
@@ -61,25 +71,9 @@ export const ShoppingCartProvider = ({ children }) => {
             setIsLogged(true);
         }
     }, []);
+
     const [isLogged, setIsLogged] = useState(() => localStorage.getItem('loggedInUser'))
-    useEffect(() => {
-        fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/products')
-            .then(res => res.json())
-            .then(data => setItems(data))
-    }, [])
-    useEffect(() => {
-        fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/users')
-            .then(res => res.json())
-            .then(data => setUsertest(data))
-    }, [])
 
-    useEffect(() => {
-        fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/orders')
-            .then((res) => res.json())
-            .then((data) => setOrder(data));
-    }, []);
-
-    console.log(usertest)
     return (
         <ShoppingCartContext.Provider value={{
             count,

@@ -20,10 +20,8 @@ export default function Register() {
         image: 'none',
     });
     const navigate = useNavigate();
-    const context = useContext(ShoppingCartContext); // Access the context
-
+    const context = useContext(ShoppingCartContext);
     const [isUsernameAvailable, setIsUsernameAvailable] = useState(true);
-
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -33,36 +31,35 @@ export default function Register() {
     };
 
     const checkUsernameAvailability = () => {
-        // Check if the username already exists in the context
         const isTaken = context.usertest.some(user => user.username === formData.username);
         setIsUsernameAvailable(!isTaken);
     };
 
-    const handleRegister = async () => {
-        checkUsernameAvailability();
-        if (!isUsernameAvailable) {
-            alert('Username is already taken. Please choose another.');
-            return;
-        }
+    // const handleRegister = async () => {
+    //     checkUsernameAvailability();
+    //     if (!isUsernameAvailable) {
+    //         alert('Username is already taken. Please choose another.');
+    //         return;
+    //     }
 
-        try {
-            const response = await fetch('https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/add-customer', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+    //     try {
+    //         const response = await fetch('add-customer', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(formData),
+    //         });
 
-            if (response.ok) {
-                navigate('/login')
-            } else {
-                alert('Registration Failed.');
-            }
-        } catch (error) {
-            console.error('Error registering:', error);
-        }
-    };
+    //         if (response.ok) {
+    //             navigate('/login')
+    //         } else {
+    //             alert('Registration Failed.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error registering:', error);
+    //     }
+    // };
 
     return (
         <Layout>
@@ -131,7 +128,7 @@ export default function Register() {
                         <p style={{ color: 'red' }}>Username is already taken. Please choose another.</p>
                     )}
                     <div className="registerbutton_container">
-                        <Button text="Register" btn_action={handleRegister} />
+                        <Button btn_action={() => alert("registration closed!")} text="Register" />
                         <Button text="Back To login" />
                     </div>
                 </div>

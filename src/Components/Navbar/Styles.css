@@ -7,9 +7,9 @@
     min-height: 60px;
     width: 100%;
     align-items: center;
-    /* z-index: 12; */
+    z-index: 12;
     position: fixed;
-    top: 0;
+    top: 0
 }
 
 .navbar_02 {
@@ -68,9 +68,7 @@
 }
 
 .hover_001:hover {
-    /* text-decoration: white wavy underline; */
     font-size: 24px;
-
 }
 
 .hover_002:hover {

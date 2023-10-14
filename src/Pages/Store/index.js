@@ -3,10 +3,11 @@ import Layout from '../../Components/Layout';
 import SearchBar from '../../Components/Searchbar';
 import Product from '../../Components/Product';
 import { useContext, useState, useEffect } from 'react';
-import { Title } from '../../Components/Title/index.js';
 import { ShoppingCartContext } from '../../Context';
 import NewView from '../../Components/ProductDetail/NewView';
+import Skeleton from 'react-loading-skeleton';
 import { useParams } from 'react-router-dom';
+
 export default function Store() {
     const [showModal, setShowModal] = useState(false);
     const context = useContext(ShoppingCartContext);
@@ -21,8 +22,8 @@ export default function Store() {
                 <Product toggle={toggleShowModal} key={item.id} data={item} />
             ));
         }
-        return <Title text='No items found...' />;
-    };
+        return <Skeleton sx={{ bgcolor: 'red.900' }} count={4} />;
+    };;
     useEffect(() => {
         context.setSearchValue('');
         context.setSearchCategory(category);

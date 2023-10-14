@@ -1,0 +1,149 @@
+[
+    {
+        "id": "129C91B6",
+        "date": "2023-09-30",
+        "userId": 1,
+        "products": [
+            {
+                "id": 1,
+                "title": "Chocolate Bar",
+                "price": 3,
+                "description": "A classic milk chocolate bar",
+                "image": "https://shapegrams.com/wp-content/uploads/2021/12/Chocolate-Bar-Featured-Image.png",
+                "quantity": 3
+            },
+            {
+                "id": 2,
+                "title": "Dark Chocolate Truffles",
+                "price": 2.49,
+                "description": "Rich and smooth dark chocolate truffles",
+                "image": "https://target.scene7.com/is/image/Target/GUEST_091bc3ec-5a03-43dc-a826-4bb535835e3b?wid=488&hei=488&fmt=pjpeg",
+                "quantity": 3
+            },
+            {
+                "id": 3,
+                "title": "Milk Chocolate Kisses",
+                "price": 0.99,
+                "description": "Sweet and creamy milk chocolate kisses",
+                "image": "https://http2.mlstatic.com/D_NQ_NP_847210-MCO43178545664_082020-O.webp",
+                "quantity": 3
+            },
+            {
+                "id": 4,
+                "title": "Chocolate Covered Almonds",
+                "price": 2.99,
+                "description": "Crunchy almonds coated in milk chocolate",
+                "image": "https://m.media-amazon.com/images/I/51ocwjof7ML.jpg",
+                "quantity": 3
+            }
+        ],
+        "totalqty": 12,
+        "totalPrice": 28.409999999999997
+    },
+    {
+        "id": "2323211",
+        "date": "2023-09-30",
+        "userId": 1,
+        "products": [
+            {
+                "id": 1,
+                "title": "Chocolate Bar",
+                "price": 3,
+                "description": "A classic milk chocolate bar",
+                "image": "https://shapegrams.com/wp-content/uploads/2021/12/Chocolate-Bar-Featured-Image.png",
+                "quantity": 3
+            },
+            {
+                "id": 2,
+                "title": "Dark Chocolate Truffles",
+                "price": 2.49,
+                "description": "Rich and smooth dark chocolate truffles",
+                "image": "https://target.scene7.com/is/image/Target/GUEST_091bc3ec-5a03-43dc-a826-4bb535835e3b?wid=488&hei=488&fmt=pjpeg",
+                "quantity": 2
+            }
+        ],
+        "totalqty": 5,
+        "totalPrice": 13.98
+    },
+    {
+        "id": "5BE7474A",
+        "date": "2023-09-30",
+        "userId": 1,
+        "products": [
+            {
+                "id": 1,
+                "title": "Chocolate Bar",
+                "price": 3,
+                "description": "A classic milk chocolate bar",
+                "image": "https://shapegrams.com/wp-content/uploads/2021/12/Chocolate-Bar-Featured-Image.png",
+                "quantity": 1
+            },
+            {
+                "id": 2,
+                "title": "Dark Chocolate Truffles",
+                "price": 2.49,
+                "description": "Rich and smooth dark chocolate truffles",
+                "image": "https://target.scene7.com/is/image/Target/GUEST_091bc3ec-5a03-43dc-a826-4bb535835e3b?wid=488&hei=488&fmt=pjpeg",
+                "quantity": 1
+            }
+        ],
+        "totalqty": 2,
+        "totalPrice": 5.49
+    },
+    {
+        "id": "C0C6AAAC",
+        "date": "2023-09-30",
+        "userId": 1,
+        "products": [
+            {
+                "id": 9,
+                "title": "Fruit Slice Gummies",
+                "price": 1.79,
+                "description": "Fruit-shaped gummy candies",
+                "image": "https://crazyoutletcandy.com/cdn/shop/products/81LdiCZf34L._SL1500_1000x1000.jpg?v=1687972120",
+                "quantity": 1
+            },
+            {
+                "id": 10,
+                "title": "Rainbow Gummy Rings",
+                "price": 1.99,
+                "description": "Colorful and fruity gummy rings",
+                "image": "https://i5.walmartimages.com/asr/7b8dc9bd-4b9e-486c-be3c-36362a3cf8c6.7c97039766119baba4bf62778c6af77c.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+                "quantity": 1
+            },
+            {
+                "id": 11,
+                "title": "Peppermint Hard Candy",
+                "price": 0.99,
+                "description": "Refreshing peppermint-flavored hard candy",
+                "image": "https://i5.walmartimages.com/seo/Great-Value-Peppermint-Starlight-Mints-Hard-Candy-10-oz_ad7b2890-985d-4f43-b86f-597613a96623.3d11db5121fd91a2fb532840731393ff.jpeg",
+                "quantity": 1
+            },
+            {
+                "id": 12,
+                "title": "Cinnamon Drops",
+                "price": 1.29,
+                "description": "Spicy and sweet cinnamon hard candies",
+                "image": "https://m.media-amazon.com/images/I/61D1-1sX+KL.jpg",
+                "quantity": 1
+            }
+        ],
+        "totalqty": 4,
+        "totalPrice": 6.0600000000000005
+    },
+    {
+        "id": "CA88DEE3",
+        "customer_id": 1,
+        "date": "2023-10-14",
+        "products": [
+            {
+                "product_id": 1,
+                "quantity": 1
+            },
+            {
+                "product_id": 2,
+                "quantity": 1
+            }
+        ]
+    }
+]
