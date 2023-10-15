@@ -11,30 +11,6 @@
                 "description": "A classic milk chocolate bar",
                 "image": "https://shapegrams.com/wp-content/uploads/2021/12/Chocolate-Bar-Featured-Image.png",
                 "quantity": 3
-            },
-            {
-                "id": 2,
-                "title": "Dark Chocolate Truffles",
-                "price": 2.49,
-                "description": "Rich and smooth dark chocolate truffles",
-                "image": "https://target.scene7.com/is/image/Target/GUEST_091bc3ec-5a03-43dc-a826-4bb535835e3b?wid=488&hei=488&fmt=pjpeg",
-                "quantity": 3
-            },
-            {
-                "id": 3,
-                "title": "Milk Chocolate Kisses",
-                "price": 0.99,
-                "description": "Sweet and creamy milk chocolate kisses",
-                "image": "https://http2.mlstatic.com/D_NQ_NP_847210-MCO43178545664_082020-O.webp",
-                "quantity": 3
-            },
-            {
-                "id": 4,
-                "title": "Chocolate Covered Almonds",
-                "price": 2.99,
-                "description": "Crunchy almonds coated in milk chocolate",
-                "image": "https://m.media-amazon.com/images/I/51ocwjof7ML.jpg",
-                "quantity": 3
             }
         ],
         "totalqty": 12,

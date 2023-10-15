@@ -27,17 +27,11 @@ export const ShoppingCartProvider = ({ children }) => {
     const initializeOrders = () => {
         const ordersFromStorage = localStorage.getItem('orders');
         if (ordersFromStorage) {
-            const storedOrders = JSON.parse(ordersFromStorage);
-            return [...Orders, ...storedOrders];
+            return JSON.parse(ordersFromStorage);
         }
-        return Orders;
+        return [];
     };
-
     const [order, setOrder] = useState(initializeOrders());
-
-
-
-
 
 
     const filteredItemsByTitle = (itemsToFilter, searchValue) => {

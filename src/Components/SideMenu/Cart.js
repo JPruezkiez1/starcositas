@@ -18,8 +18,6 @@ const CheckoutSideMenu = () => {
         });
         context.setCartProducts(updatedCart);
     };
-
-
     function generateShortId(length) {
         const characters = 'ABCDE0123456789';
         let shortId = '';
@@ -29,13 +27,10 @@ const CheckoutSideMenu = () => {
         }
         return shortId;
     }
-
-
     const handleDelete = (id) => {
         const filteredCart = context.cartProducts.filter(product => product.id !== id);
         context.setCartProducts(filteredCart);
         context.setCount(context.count - 1);
-
         if (filteredCart.length === 0) {
             context.closeCheckoutSideMenu();
         }
@@ -44,17 +39,21 @@ const CheckoutSideMenu = () => {
         try {
             const orderId = generateShortId(8);
             const currentDate = new Date().toISOString().slice(0, 10);
+            const totalQuantity = context.cartProducts.reduce((total, product) => total + product.quantity, 0);
+            const totalPrice = totalvalue(context.cartProducts);
             const orderToAdd = {
                 id: orderId,
                 userId: context.loggedInUser.id,
                 date: currentDate,
                 products: context.cartProducts.map(product => ({
-                    product_id: product.id,
-                    quantity: product.quantity
-                }))
+                    id: product.id,
+                    quantity: product.quantity,
+                    image: product.image,
+                    price: product.price,
+                })),
+                totalqty: totalQuantity,
+                totalPrice: totalPrice.toFixed(2),
             };
-
-
             const ordersFromLocalStorage = localStorage.getItem('orders');
             const existingOrders = ordersFromLocalStorage ? JSON.parse(ordersFromLocalStorage) : Orders;
             const updatedOrders = [...existingOrders, orderToAdd];
@@ -63,9 +62,10 @@ const CheckoutSideMenu = () => {
             context.closeCheckoutSideMenu();
             window.location.href = `/check/${orderId}`;
         } catch (error) {
-            console.error("Error saving order to local storage: ", error);
+            alert("error creating order, contact Jp")
         }
     };
+
 
 
     return (
