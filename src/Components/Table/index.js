@@ -14,21 +14,12 @@ export default function Table({ orders }) {
         const user = context.usertest.find(user => user.id === userId);
         return user ? user.username : '';
     }
-    const deleteorder = async (orderId) => {
+    const deleteorder = (orderId) => {
         try {
-            const response = await fetch(`https://nodejs-dot-strategic-reef-401621.ue.r.appspot.com/delete/${orderId}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            if (response.ok) {
-                const updatedOrders = context.order.filter(order => order.id !== orderId);
-                context.setOrder(updatedOrders);
-                console.log(`Order with ID ${orderId} deleted successfully.`);
-            } else {
-                console.error(`Failed to delete order with ID ${orderId}.`);
-            }
+            const updatedOrders = context.order.filter(order => order.id !== orderId);
+            localStorage.setItem('orders', JSON.stringify(updatedOrders));
+            context.setOrder(updatedOrders);
+            console.log(`Order with ID ${orderId} deleted successfully from localStorage.`);
         } catch (error) {
             console.error('Error deleting order:', error);
         }
