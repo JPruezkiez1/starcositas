@@ -22,7 +22,7 @@ export const ShoppingCartProvider = ({ children }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [loggedInUser, setLoggedInUser] = useState(null);
+
 
     const initializeOrders = () => {
         const ordersFromStorage = localStorage.getItem('orders');
@@ -57,6 +57,9 @@ export const ShoppingCartProvider = ({ children }) => {
     useEffect(() => {
         applyFilters();
     }, [searchValue, searchCategory, items]);
+
+
+    const [loggedInUser, setLoggedInUser] = useState(null);
     useEffect(() => {
         const savedUser = localStorage.getItem('loggedInUser');
         if (savedUser) {
