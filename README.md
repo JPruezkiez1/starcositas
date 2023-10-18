@@ -6,7 +6,7 @@ You can preview the **StarCositas** app by visiting visiting --> **[starcositas.
 ## How to Use
 You must have [NodeJs](https://nodejs.org/en) installed to run the development (if you want to run development)
 
-## `npm i` 
+### `npm i` 
 this will install all dependencies needed to run 
 
 ### `npm start`
