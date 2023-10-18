@@ -1,7 +1,14 @@
 # Starcositas
+### About
+**Starcositas** is a front-End application create with React, it uses a global context to control multiple aspects of the application and handle common errors via `useEffect`.
+You can preview the **StarCositas** app by visiting visiting --> **[starcositas.vercel.app](https://starcositas.vercel.app/)**
 
 ## How to Use
 You must have [NodeJs](https://nodejs.org/en) installed to run the development (if you want to run development)
+
+## `npm i` 
+this will install all dependencies needed to run 
+
 ### `npm start`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
