@@ -1,10 +1,6 @@
-# Starcositas
-General front End for virtual store or ecommerce,
-The application contains the following basic functionality:
-
 <details>
-***
-#### Users list
+
+### Users list
 ![User list](https://awo.jpruezkiez.com/sc7zDq.png)
 
 ### Specific user profile
