@@ -46,3 +46,20 @@ You may add as many categories as you need via the **Navbar** component, this wi
 ![contextfilter](https://awo.jpruezkiez.com/M1zGuL.png)
 
 </details>
+
+
+
+### Routing system
+
+<details><summary>Routes and Routes protection </summary>
+
+Routes or Routing system was created with [react-router-dom](https://reactrouter.com/en/main)
+Most routes are self declared and open a single component, however there are some routes that require the use of Params to define or set the state to a certain value, review the `App.js` file to obtain the neccesary information.
+
+![Preview](https://awo.jpruezkiez.com/BWwU5F.png)
+
+Condition for accesing each route can be changed or enforce in the `Routes.js` file as shown below:
+![Route Protection system](https://awo.jpruezkiez.com/vYJErH.png)
+
+
+</details>
