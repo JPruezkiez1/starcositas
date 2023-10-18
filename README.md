@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Getting Started with Starcositas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with react, using tailwind CSS at a minor degree.
 
-## Available Scripts
+## Starting development
 
-In the project directory, you can run:
+You must have NodeJs installed to run the developmen
 
 ### `npm start`
 
