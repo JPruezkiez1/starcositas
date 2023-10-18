@@ -1,5 +1,22 @@
 # Starcositas
 
+
+|Technology                                                             |Version        | Benefits
+|:----------------------------------------------------------------------|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|<img src="https://img.shields.io/badge/React-blue">             |16.13.1        | React allows us to create reusable components that speed up development, in addition to hooks to manage the state in functional components and a set of tools for development. |
+|<img src="https://img.shields.io/badge/Next.js-black">                    |9.5.2         | With NextJs we can start in React in a faster way, leaving aside the pre-configurations. In addition to bringing with it an easy-to-use standard when it comes to managing the Router, images and even   |
+|<img src="https://img.shields.io/badge/Sass-pink">                  |1.26.10           |This preprocessor is one of the most popular in the world of web development since its syntax is very similar to CSS but with vitamins, since we can create variables, mixins and nest classes in a very easy way.|
+|<img src="https://img.shields.io/badge/ESLint-yellow">                  |1.26.10           | Thanks to this linter we can realize errors that could generate bugs in our code and thus avoid uploading them to production.|
+
+
+
+
+
+
+
+
+
+
 ## How to Use
 You must have [NodeJs](https://nodejs.org/en) installed to run the development (if you want to run development)
 ### `npm start`
