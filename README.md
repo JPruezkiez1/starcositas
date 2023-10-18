@@ -49,7 +49,7 @@ You may add as many categories as you need via the **Navbar** component, this wi
 
 
 
-### Routing system
+## Routing system
 
 <details><summary>Routes and Routes protection </summary>
 
@@ -62,4 +62,19 @@ Condition for accesing each route can be changed or enforce in the `Routes.js` f
 ![Route Protection system](https://awo.jpruezkiez.com/vYJErH.png)
 
 
+</details>
+
+## User authentication
+<details>  <summary>Authentication System</summary> 
+
+**Starcositas**  has its own user control system. by loading an user list into the global context provider, it's possible to identify an user by username and password.
+
+NOTE: account creation has been disabled as the backend API was removed from the project to be used in a different one, still the user login continues, feed by JSON data, you may review said data in the `DATA` folder.
+**Login form:**
+
+![Login](https://awo.jpruezkiez.com/BAuF87.png)
+
+**Register Form:**
+  ![register format ](https://awo.jpruezkiez.com/HqoXIo.png)
+ 
 </details>
