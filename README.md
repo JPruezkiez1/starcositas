@@ -13,7 +13,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ---
-
+### All admin views
 <details> 
 <summary> Admin views</summary>
 
@@ -31,6 +31,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 </details>
 
+### Aplication features
 
 <details> 
 <summary> Products Category Settings</summary>
