@@ -1,5 +1,5 @@
-<details>
-<summary> **admin views** </summary>
+<details> 
+<summary> Admin views</summary>
 
 ### Users list
 ![User list](https://awo.jpruezkiez.com/sc7zDq.png)
