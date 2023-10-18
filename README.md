@@ -71,15 +71,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 <details>
-<summary>Section A</summary>
-<details>
-<summary>Section A.B</summary>
-<details>
-<summary>Section A.B.C</summary>
-<details>
-<summary>Section A.B.C.D</summary>
-  Done!
-</details>
-</details>
-</details>
+ - **Admin View for users and orders**
+ -  - **Users list**
+ -  - **Specific user**
+ -  - **Admin Orders view**
+ -  - **Specific order view**
+
+***
+#### Users list
+In this view you can manage and view all users information, including all their orders and personal info.
+####  User List View:
+![User list](https://awo.jpruezkiez.com/sc7zDq.png)
+
+### Specific user profile view
+![User Profile via admin view](https://awo.jpruezkiez.com/618dNU.png)
+**Note: user personal profile resembles the image above**
 </details>
