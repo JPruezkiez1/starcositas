@@ -1,7 +1,7 @@
 # Starcositas
 
-### Starting development
-You must have [NodeJs](https://nodejs.org/en) installed to run the development
+## How to Use
+You must have [NodeJs](https://nodejs.org/en) installed to run the development (if you want to run development)
 ### `npm start`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
