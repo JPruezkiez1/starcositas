@@ -1,5 +1,0 @@
-dispatch:
-  - url: starcositas.jpruezkiez.com/*
-    service: starcositas
-  - url: services.jpruezkiez.com/*
-    service: nodejs
