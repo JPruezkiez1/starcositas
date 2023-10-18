@@ -1,18 +1,8 @@
 # Starcositas
 
-
 |Technology                                                             |Version        | Benefits
 |:----------------------------------------------------------------------|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<img src="https://img.shields.io/badge/React-blue">             |16.13.1        | React allows us to create reusable components that speed up development, in addition to hooks to manage the state in functional components and a set of tools for development. |
-
-
-
-
-
-
-
-
-
+|<img src="https://img.shields.io/badge/React-blue">             |18.2.0       | React allows us to create reusable components that speed up development, in addition to hooks to manage the state in functional components and a set of tools for development. |
 
 
 ## How to Use
