@@ -25,16 +25,17 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 <summary> Admin views</summary>
 
 ### Users list
-![User list](https://awo.jpruezkiez.com/sc7zDq.png)
+![User list]![sc7zDq](https://github.com/JPruezkiez1/starcositas/assets/141532010/012dfd5d-bfbc-4e3c-8865-b83870dd5b08)
 
 ### Specific user profile
 
-![User Profile via admin view](https://awo.jpruezkiez.com/618dNU.png)
+![User Profile via admin view]![618dNU](https://github.com/JPruezkiez1/starcositas/assets/141532010/495eb326-c894-472b-9410-ea67f0bf2b5d)
 **Note: user personal profile resembles the image above**
 
  ### Admin orders view
 
-![Orders View](https://awo.jpruezkiez.com/qOKhzn.png)
+![Orders View]![qOKhzn](https://github.com/JPruezkiez1/starcositas/assets/141532010/fc78e422-aa87-4775-870c-9e963118c896)
+
 
 </details>
 
@@ -47,10 +48,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 You may add as many categories as you need via the **Navbar** component, this will trigger the category set State as defined in the **Context.js** file.
 
-![Navbar  with 1 category](https://awo.jpruezkiez.com/Uf7Wt6.png)
+![Navbar  with 1 category]![Uf7Wt6](https://github.com/JPruezkiez1/starcositas/assets/141532010/7eacbb9a-42a9-4ff6-9e9f-c7bbaff9e754)
+
 
 ***You may adjust the filtering criteria for the products in the context file:***
-![contextfilter](https://awo.jpruezkiez.com/M1zGuL.png)
+![contextfilter]![M1zGuL](https://github.com/JPruezkiez1/starcositas/assets/141532010/2fc36f07-07bc-4987-9c85-113d94bd4a69)
+
 
 </details>
 
@@ -63,10 +66,12 @@ You may add as many categories as you need via the **Navbar** component, this wi
 Routes or Routing system was created with [react-router-dom](https://reactrouter.com/en/main)
 Most routes are self declared and open a single component, however there are some routes that require the use of Params to define or set the state to a certain value, review the `App.js` file to obtain the neccesary information.
 
-![Preview](https://awo.jpruezkiez.com/BWwU5F.png)
+![Preview]![BWwU5F](https://github.com/JPruezkiez1/starcositas/assets/141532010/e936d3ce-91e2-407e-aa54-213768026334)
+
 
 Condition for accesing each route can be changed or enforce in the `Routes.js` file as shown below:
-![Route Protection system](https://awo.jpruezkiez.com/vYJErH.png)
+![Route Protection system]![vYJErH](https://github.com/JPruezkiez1/starcositas/assets/141532010/5133b5ec-3c90-4560-9afc-82ad17025f26)
+
 
 
 </details>
@@ -79,9 +84,11 @@ Condition for accesing each route can be changed or enforce in the `Routes.js` f
 NOTE: account creation has been disabled as the backend API was removed from the project to be used in a different one, still the user login continues, feed by JSON data, you may review said data in the `DATA` folder.
 **Login form:**
 
-![Login](https://awo.jpruezkiez.com/BAuF87.png)
+![Login]![BAuF87](https://github.com/JPruezkiez1/starcositas/assets/141532010/08c16236-a3aa-46bf-baa5-44c0791c99d9)
+
 
 **Register Form:**
-  ![register format ](https://awo.jpruezkiez.com/HqoXIo.png)
+  ![register format ]![HqoXIo](https://github.com/JPruezkiez1/starcositas/assets/141532010/34ff761b-52d9-4b70-ae0c-99302b4bb0c2)
+
  
 </details>
